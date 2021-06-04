@@ -1,0 +1,51 @@
+<div style = "padding:20px;">
+
+    <a href="./index.html" >返回主页</a>
+    <h1>基于n-gram的亚马逊特定类别的商品评价模型</h1>
+    <p><a href="https://www.comap.com/">比赛官网</a>:
+        https://www.comap.com/
+    </p>
+    <p><a href="./file/mcm.pdf">模型论文 :点击获取</a>
+       </p>
+    <p><a href="./file/美赛分享.pptx">美赛经验分享：点击获取</a>
+    </p>
+
+    <h2>Summary</h2>
+    <p>    With the fast development of online marketplace, it is essential for companies to hear the 
+    comments from customers and respond timely. Sunshine Company plans to use ratings and 
+    reviews of other competing products to analyze sales strategy and design features.
+    In the text mining, to begin with, we preprocess the given data in two stages - noise removal 
+    and normalization. Then we use the n-gram model to find most frequently-used words, 2-
+    word and 3-word phrases in high-star reviews, low-star reviews and high-quality reviews 
+    respectively. In this way we can get the key features that customers care the most, and the 
+    quality descriptors closely related to rating levels. Thus, we come to these conclusions:
+    </p>
+    <img src="./images/mcm_ngram.png" alt="mcm_ngram" height="400">
+    <p>(1) For hair dryers, some features need to be considered such as retractable cords and 
+    light weight;
+    </p><p>(2) For microwave ovens, additional features include stainless steel interior and an 
+    instruction & cooking guide.
+    </p><p>(3) For pacifiers, they need to be easy to use, easy to find, easy to clean and easy to carry 
+    along with diaper bags.
+    </p><p>(4) Some descriptors are linked to high-star reviews: wonderful, excellent, awesome, 
+    perfect, etc. , while some are linked to low-star reviews: garbage, horrible, junk, awful...
+    </p><p>Time-based measures are needed to judge whether specific star ratings incite more reviews. If 
+    we calculate the relation between the increased frequency of k-star reviews and time, then we 
+    will see there are no obvious occasions when specific star rating attracts reviews.
+    </p><p>To predict a potentially successful or failing product quantitatively, we introduce the dual 
+    linear regressive equation. Since the number of total reviews (TR) can be roughly assumed to 
+    be affected by 2 variables - the number of 5-star ratings (FS) and the total of helpful votes 
+    (HP), the relation is as follows:
+    </p>
+    <img border="0" src="./images/mcm_eq0.png" alt="nscscc_score" width="400">
+
+    <p>Use TR as a symbol of success. Combine this method with text-based measures with the help 
+    of key features and quality descriptors, it can indicate a product’s future.
+    </p>
+    <img src="./images/mcm_micro_cc.png" alt="mcm_ngram" width="500">
+    
+    <p>
+    Keywords: Text Mining; Natural Language Processing; N-gram; Correlation Coefficient
+    </p>
+
+</div>
