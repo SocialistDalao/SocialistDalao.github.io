@@ -1,0 +1,17 @@
+<div style = "padding:20px;">
+    <a href="./index.html" >返回主页</a>
+    <h1>HITSZ通知新闻搜索引擎：Naive SE</h1>
+    <p><a href="https://gitee.com/LoanCold/naivese">Codes</a></p>
+    <p><a href="file/SE_report.docx">项目文档</a></p>
+    <p><a href="file/se_slides.pptx">Slides</a></p>
+    <h2>Introduction</h2>
+    <p>    This full name of this project is called “Naïve Search Engine” which focuses on search related information by queries given by users.  Users are provided with a simple website and when they enter the queries they want to search, and the website returns 10 most relevant websites that satisfy the queries. The websites are limited in HITSZ and contents are all in Chinese.
+    </p>
+    <p>The whole project uses library including Lucene, Requests, BeautifulSoup, Tomcat, IKAnalyzer, and Servlet. At first, we use Request (Python) to build crawlers and then split the useful contents to be stored. After that, we use Lucene (JAVA) to perform indexing and querying. To support Chinese indexing and querying, we use IKAnalyzer (JAVA) to help split Chinese words.  Then, to achieve website searching user interface, we use Tomcat and Servlet (JAVA) to create a virtual Internet server which enables user to access websites in Browser. 
+    </p><p>This catalogue of this project is discussed in the end of this report. Moreover, I want to declare that the final website only shows little part of the whole project. I actually do a lot more in my codes, but I didn’t enables them in the website that users finally face. The reason is that we don’t want to focus too much on the UI, and function is all that matters to me.
+    </p>
+    <h2>Demo</h2>
+    <img src="images/se_query.png" width="400">
+    <p></p>
+    <img src="images/se_result.png"width="800">
+</div>
