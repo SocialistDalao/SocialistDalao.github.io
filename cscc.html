@@ -9,15 +9,18 @@
     <p><a href="https://gitlab.eduxiji.net/ultrateam/ultraos">UltraOS项目地址</a>
         :https://gitlab.eduxiji.net/ultrateam/ultraos</p>
     <p><a href="file/UltraOS文档.pdf">UltraOS文档</a>
-
     </p>
+    <p><a href="file/UltraOS收获.pptx">UltraOS的阶段性收获</a>
+    </p>
+
     <p>由于老师说我们UltraOS名字太大了，我们也比较菜，就仿照UltraMan（奥特曼）
         日文将UltraOS起了个日文名“オルトラオレジ”</p>
     <p>UltraOS的主要特性：</p>
     <li>Rust语言编写</li>
-    <li>多核操作系统</li>
-    <li>支持C语言程序和Rust库</li>
-    <li>FAT32与EXT2-like文件系统</li>
+    <li>支持多核运行</li>
+    <li>混合调试模块：Monitor</li>
+    <li>内存优化策略：Lazy + CoW</li>
+    <li>虚拟文件系统：支持FAT32与EXT2-like文件系统</li>
     <li>详细项目文档</li>
     
     <h2>比赛概述</h2>
@@ -25,7 +28,7 @@
         400M可调标称频率，支持乘法、除法和平方根运算和双精度FPU。
     </p>
     <p>UltraOS参加比赛的内核赛道，该比赛每个学校内核赛道最多参加两个队伍，2021年内核总共参赛队伍为95个队伍。
-        截至6月4日，根据系统测试功能正确性自动评判得分，UltraOS排名为5。
+        截至7月20日，根据系统测试功能正确性自动评判得分，UltraOS在决赛第一阶段排名为1（与另一队伍并列）。
         </p>
     <img border="0" src="./images/cscc_score0604.png" alt="nscscc_score" width="800">
 
@@ -38,43 +41,43 @@
     <h2>UltraOS</h2>
     <p>目前多核和用户态支持说明暂时还未完成。</p>
     <p>UltraOS由rust语言编写，运行于kendryte-K210开发板双核处理器上，
-        支持EXT2与FAT32文件系统,基于rCore-Turorial-v3 2021.3.24版本开发。截至6月4日，已能够正常在开发板上运行，
-        目前正在进一步适配和支持更多C语言系统调用规则，同时为支持多核运行，现在还在并行调试系统调用多核支持。</p>
+        支持EXT2与FAT32文件系统,基于rCore-Turorial-v3 2021.3.24版本开发。目前正在开发以及完善更多系统调用，以支持静态编译的应用程序运行，使其能够达到与linux一样的应用程序支持。
+        目前多核运行不完备，仅仅能够支持6月版本，预计8月底我们将开发重心转换为双核支持。</p>
     
     <p>现在支持的系统调用</p>
 
     <ul>
-    <li>const SYSCALL_GETCWD: usize = 17;</li>
-    <li>const SYSCALL_DUP: usize = 23;</li>
-    <li>const SYSCALL_DUP3:usize = 24;</li>
-    <li>const SYSCALL_MKDIRAT: usize = 34;</li>
-    <li>const SYSCALL_UNLINKAT: usize = 35;</li>
-    <li>const SYSCALL_LINKAT: usize = 37;</li>
-    <li>const SYSCALL_UMOUNT2: usize = 39;</li>
-    <li>const SYSCALL_MOUNT: usize = 40;</li>
-    <li>const SYSCALL_CHDIR: usize = 49;</li>
-    <li>const SYSCALL_OPENAT: usize = 56;</li>
-    <li>const SYSCALL_CLOSE: usize = 57;</li>
-    <li>const SYSCALL_PIPE: usize = 59;</li>
-    <li>const SYSCALL_GETDENTS64: usize = 61;</li>
-    <li>const SYSCALL_READ: usize = 63;</li>
-    <li>const SYSCALL_WRITE: usize = 64;</li>
-    <li>const SYSCALL_FSTAT:usize = 80;</li>
-    <li>const SYSCALL_EXIT: usize = 93;</li>
-    <li>const SYSCALL_NANOSLEEP: usize = 101;</li>
-    <li>const SYSCALL_YIELD: usize = 124;</li>
-    <li>const SYSCALL_TIMES: usize = 153;</li>
-    <li>const SYSCALL_UNAME: usize = 160;</li>
-    <li>const SYSCALL_GET_TIME_OF_DAY: usize = 169;</li>
-    <li>const SYSCALL_GETPID: usize = 172;</li>
-    <li>const SYSCALL_GETPPID: usize = 173;</li>
-    <li>const SYSCALL_SBRK: usize = 213;</li>
-    <li>const SYSCALL_BRK: usize = 214;</li>
-    <li>const SYSCALL_MUNMAP: usize = 215;</li>
-    <li>const SYSCALL_FORK: usize = 220;</li>
-    <li>const SYSCALL_EXEC: usize = 221;</li>
-    <li>const SYSCALL_MMAP: usize = 222;</li>
-    <li>const SYSCALL_WAIT4: usize = 260;</li>
+    <li>const SYSCALL_GETCWD: usize = 17;</li>
+    <li>const SYSCALL_DUP: usize = 23;</li>
+    <li>const SYSCALL_DUP3:usize = 24;</li>
+    <li>const SYSCALL_MKDIRAT: usize = 34;</li>
+    <li>const SYSCALL_UNLINKAT: usize = 35;</li>
+    <li>const SYSCALL_LINKAT: usize = 37;</li>
+    <li>const SYSCALL_UMOUNT2: usize = 39;</li>
+    <li>const SYSCALL_MOUNT: usize = 40;</li>
+    <li>const SYSCALL_CHDIR: usize = 49;</li>
+    <li>const SYSCALL_OPENAT: usize = 56;</li>
+    <li>const SYSCALL_CLOSE: usize = 57;</li>
+    <li>const SYSCALL_PIPE: usize = 59;</li>
+    <li>const SYSCALL_GETDENTS64: usize = 61;</li>
+    <li>const SYSCALL_READ: usize = 63;</li>
+    <li>const SYSCALL_WRITE: usize = 64;</li>
+    <li>const SYSCALL_FSTAT:usize = 80;</li>
+    <li>const SYSCALL_EXIT: usize = 93;</li>
+    <li>const SYSCALL_NANOSLEEP: usize = 101;</li>
+    <li>const SYSCALL_YIELD: usize = 124;</li>
+    <li>const SYSCALL_TIMES: usize = 153;</li>
+    <li>const SYSCALL_UNAME: usize = 160;</li>
+    <li>const SYSCALL_GET_TIME_OF_DAY: usize = 169;</li>
+    <li>const SYSCALL_GETPID: usize = 172;</li>
+    <li>const SYSCALL_GETPPID: usize = 173;</li>
+    <li>const SYSCALL_SBRK: usize = 213;</li>
+    <li>const SYSCALL_BRK: usize = 214;</li>
+    <li>const SYSCALL_MUNMAP: usize = 215;</li>
+    <li>const SYSCALL_FORK: usize = 220;</li>
+    <li>const SYSCALL_EXEC: usize = 221;</li>
+    <li>const SYSCALL_MMAP: usize = 222;</li>
+    <li>const SYSCALL_WAIT4: usize = 260;</li>
     </ul>
 
     <h2> 系统整体架构设计</h2><p> 
