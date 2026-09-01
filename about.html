@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-filter="amber" data-mode="art">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于 — 李程浩 LoanCold</title>
+  <meta name="description" content="李程浩（LoanCold）的个人介绍与简历：教育经历、主要经历、所获荣誉、关键词与联系方式。">
+  <script>
+    try {
+      var q = new URLSearchParams(location.search).get('mode');
+      var h = location.hash.replace('#', '');
+      var m = (q === 'art' || h === 'art') ? 'art'
+            : (q === 'pro' || h === 'pro') ? 'pro'
+            : (localStorage.getItem('loancold.mode') === 'pro' ? 'pro' : 'art');
+      document.documentElement.setAttribute('data-mode', m);
+    } catch (e) { document.documentElement.setAttribute('data-mode', 'art'); }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/fallback.js" defer></script>
+</head>
+<body>
+
+  <main class="page-main">
+    <header class="page-head reveal">
+      <span class="kicker" data-i18n="about.kicker">ABOUT / RESUME</span>
+      <h1 data-i18n="about.title">个人介绍与简历</h1>
+      <p class="site-notice" data-i18n="site.notice">Last Update：2026.09.01 · 信息不全，仅供参考，最新版本正在重构中</p>
+    </header>
+
+    <div class="about-grid">
+      <!-- 左：人像（pro 原图油画框 / art 1bit 抖动）+ 联系 -->
+      <aside class="about-portrait reveal">
+        <div class="portrait-frame">
+          <img class="dither-plain"
+               src="images/me_portrait.jpg"
+               alt="李程浩"
+               onerror="this.onerror=null;this.src='https://placehold.co/600x800/F4EFE6/9A7B2D?text=Portrait';">
+        </div>
+        <figcaption data-i18n="about.portrait.cap">LOANCOLD · 1BIT PORTRAIT</figcaption>
+
+        <hr class="px-divider">
+
+        <h2 class="section-title" data-i18n="about.s6">VI. 联系</h2>
+        <p class="mono" style="font-size:14px;">
+          loancold@foxmail.com<br>
+          <span class="dim">loancold@zju.edu.cn</span><br>
+          QQ：<span class="dim">loancold</span>
+        </p>
+      </aside>
+
+      <!-- 右：简历内容 -->
+      <div class="about-content">
+        <section class="reveal">
+          <h2 class="section-title" data-i18n="about.s1">I. 简介</h2>
+          <p data-i18n="about.p1">我是<b>李程浩</b>，英文名 <b>LoanCold</b>（也作 <b>SocialistDalao</b>）。现为腾讯<b>微信小游戏全栈性能优化工程师</b>；此前就读于浙江大学网络空间安全硕士、哈尔滨工业大学（深圳）计算机本科。</p>
+          <p class="dim" data-i18n="about.p2">折腾过 FPGA 软核、写过多核操作系统内核；也写诗、写一些不成体统的杂记。相信系统与文字共享同一种美：简洁、克制、无处可删。</p>
+        </section>
+
+        <hr class="px-divider">
+
+        <section class="reveal">
+          <h2 class="section-title" data-i18n="about.s2">II. 主要经历</h2>
+          <ul class="timeline">
+            <li>
+              <span class="t-date">2025 — 至今</span>
+              <div class="t-title" data-i18n="about.exp0">腾讯 · 微信小游戏全栈性能优化工程师</div>
+            </li>
+            <li>
+              <span class="t-date">2022 — 2025</span>
+              <div class="t-title" data-i18n="about.edu1.t">浙江大学 · 网络空间安全 · 硕士 · 导师 申文博</div>
+            </li>
+            <li>
+              <span class="t-date">2018 — 2022</span>
+              <div class="t-title" data-i18n="about.edu2.t">哈尔滨工业大学（深圳）· 计算机 · 本科 · 学分绩 94.07 (TOP 2%) · 导师 夏文</div>
+            </li>
+          </ul>
+        </section>
+
+        <hr class="px-divider">
+
+        <section class="reveal">
+          <h2 class="section-title" data-i18n="about.s3">III. 主要作品</h2>
+          <ul class="honor-list">
+            <li>
+              <span data-i18n="about.exp.1"><b>UltraMIPS</b> · FPGA 双发射计算机系统（队长）— 主频 91MHz、性能 63 倍 / IPC 34.6 倍，「龙芯杯」CPU 团队赛一等奖（总排名 2）</span>
+              <a class="gh-badge" href="https://github.com/SocialistDalao/UltraMIPS_NSCSCC" target="_blank" rel="noopener" aria-label="UltraMIPS GitHub Stars">
+                <img src="https://img.shields.io/github/stars/SocialistDalao/UltraMIPS_NSCSCC?style=social" alt="GitHub stars" loading="lazy" onerror="this.style.display='none'">
+              </a>
+            </li>
+            <li data-i18n="about.exp.2"><b>UltraOS</b> · RISC-V64 多核操作系统（队长）— Rust 编写、K210 双核、59 条系统调用，系统能力大赛 OS 内核赛道一等奖第一名</li>
+            <li data-i18n="about.exp.3"><b>Rust 编译器不稳定特性研究</b> — 软件工程顶会 ICSE (CCF-A) 一作，自研生态解析器（248M 依赖、99% 正确率）</li>
+            <li data-i18n="about.exp.4"><b>Rust 操作系统驱动安全增强</b>（本科毕设）— Rust for Linux 驱动框架评估与 ABI 检测工具</li>
+            <li data-i18n="about.exp.5"><b>HITSZ 助手</b>（创始人之一）— 智慧校园 App，2500 日活 / 下载 2w，青年 AI 创新创业大会一等奖</li>
+            <li data-i18n="about.exp.6"><b>出租车机场载客决策模型</b>（队长）— 精确率约 80%，数模国赛二等奖</li>
+          </ul>
+        </section>
+
+        <hr class="px-divider">
+
+        <section class="reveal">
+          <h2 class="section-title" data-i18n="about.s4">IV. 所获荣誉</h2>
+          <h3 class="dim" style="font-size:16px;" data-i18n="about.h.syn">综合荣誉</h3>
+          <ul class="honor-list">
+            <li><span class="h-year">2019 / 2020</span><span data-i18n="about.h1">国家奖学金（连续两学年）</span></li>
+            <li><span class="h-year">2019</span><span data-i18n="about.h2">哈尔滨工业大学优秀学生干部标兵</span></li>
+            <li><span class="h-year">2024</span><span data-i18n="about.h11">浙江大学优秀研究生</span></li>
+          </ul>
+          <h3 class="dim" style="font-size:16px;margin-top:24px;" data-i18n="about.h.comp">竞赛 / 学术荣誉</h3>
+          <ul class="honor-list">
+            <li><span class="h-year">2021</span><span data-i18n="about.h10">全国大学生计算机系统能力培养大赛 OS 内核赛道一等奖第一名</span></li>
+            <li><span class="h-year">2020</span><span data-i18n="about.h5">全国大学生计算机系统能力培养大赛「龙芯杯」CPU 团队赛一等奖（总排名 2）</span></li>
+            <li><span class="h-year">2023</span><span data-i18n="about.h12">软件工程顶会 ICSE (CCF-A) 一作一篇</span></li>
+            <li><span class="h-year">2020</span><span data-i18n="about.h8">第六届全国青年人工智能创新创业大会 创新组一等奖</span></li>
+            <li><span class="h-year">2019 / 2020</span><span data-i18n="about.h6">全国大学生数学建模竞赛 全国二等奖（2019、2020）</span></li>
+            <li><span class="h-year">2020</span><span data-i18n="about.h7">美国大学生数学建模竞赛 Meritorious Winner</span></li>
+          </ul>
+        </section>
+
+        <hr class="px-divider">
+
+        <section class="reveal">
+          <h2 class="section-title" data-i18n="about.s5">V. 关键词</h2>
+          <div class="tag-row">
+            <span class="tag" data-i18n="about.tag.1">WebAssembly</span>
+            <span class="tag" data-i18n="about.tag.2">Web 游戏客户端</span>
+            <span class="tag" data-i18n="about.tag.3">操作系统</span>
+            <span class="tag" data-i18n="about.tag.4">计算机体系结构</span>
+            <span class="tag" data-i18n="about.tag.5">Rust</span>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="assets/js/layout.js"></script>
+</body>
+</html>

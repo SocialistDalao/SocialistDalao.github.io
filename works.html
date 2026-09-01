@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-filter="amber" data-mode="art">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作品 — 李程浩 LoanCold</title>
+  <meta name="description" content="李程浩的个人作品：操作系统、FPGA 计算机系统、数学建模与校园信息平台等项目。">
+  <script>
+    try {
+      var q = new URLSearchParams(location.search).get('mode');
+      var h = location.hash.replace('#', '');
+      var m = (q === 'art' || h === 'art') ? 'art'
+            : (q === 'pro' || h === 'pro') ? 'pro'
+            : (localStorage.getItem('loancold.mode') === 'pro' ? 'pro' : 'art');
+      document.documentElement.setAttribute('data-mode', m);
+    } catch (e) { document.documentElement.setAttribute('data-mode', 'art'); }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/fallback.js" defer></script>
+</head>
+<body>
+
+  <main class="page-main">
+    <header class="page-head reveal">
+      <span class="kicker" data-i18n="works.kicker">SELECTED WORKS</span>
+      <h1 data-i18n="works.title">个人作品</h1>
+    </header>
+
+    <div class="work-grid">
+
+      <!-- UltraOS -->
+      <a class="work-card reveal" href="cscc.html">
+        <div class="work-shot">
+          <img class="dither-plain"
+               src="images/cscc_judge.png"
+               alt="UltraOS"
+               onerror="this.onerror=null;this.src='https://placehold.co/640x360/F4EFE6/9A7B2D?text=UltraOS';">
+        </div>
+        <h3 data-i18n="works.w1.t">UltraOS — RISC-V64 多核操作系统</h3>
+        <div class="work-meta mono" data-i18n="works.w1.m">RUST · K210 · 多核内核 · 2021</div>
+        <p data-i18n="works.w1.d">以 Rust 编写、运行于 Kendryte-K210 双核 RISC-V 处理器，支持 EXT2 / FAT32 文件系统与双核调度。</p>
+        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
+      </a>
+
+      <!-- UltraMIPS -->
+      <a class="work-card reveal" href="nscscc.html">
+        <div class="work-shot">
+          <img class="dither-plain"
+               src="images/nscscc_overview.png"
+               alt="UltraMIPS"
+               onerror="this.onerror=null;this.src='https://placehold.co/640x360/F4EFE6/9A7B2D?text=UltraMIPS';">
+        </div>
+        <h3 data-i18n="works.w2.t">UltraMIPS — FPGA 双发射计算机系统</h3>
+        <div class="work-meta mono" data-i18n="works.w2.m">FPGA · MIPS32 · 六级流水 · 一等奖</div>
+        <p data-i18n="works.w2.d">顺序双发射六级流水 CPU，含全流水 Cache 与动态分支预测（90.6% 命中），系统能力大赛全国一等奖（2/31）。</p>
+        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
+      </a>
+
+      <!-- 出租车决策 -->
+      <a class="work-card reveal" href="cumcm.html">
+        <div class="work-shot">
+          <img class="dither-plain"
+               src="images/cumcm_decision.png"
+               alt="出租车决策模型"
+               onerror="this.onerror=null;this.src='https://placehold.co/640x360/F4EFE6/9A7B2D?text=CUMCM';">
+        </div>
+        <h3 data-i18n="works.w3.t">出租车机场载客线性决策模型</h3>
+        <div class="work-meta mono" data-i18n="works.w3.m">MATLAB · 统计决策 · 国二</div>
+        <p data-i18n="works.w3.d">面向深圳宝安国际机场，综合航班信息与收益期望建模司机决策，并优化上车点布局与短途优先权方案。</p>
+        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
+      </a>
+
+      <!-- n-gram -->
+      <a class="work-card reveal" href="mcm.html">
+        <div class="work-shot">
+          <img class="dither-plain"
+               src="images/mcm_ngram.png"
+               alt="n-gram 评价模型"
+               onerror="this.onerror=null;this.src='https://placehold.co/640x360/F4EFE6/9A7B2D?text=MCM';">
+        </div>
+        <h3 data-i18n="works.w4.t">基于 n-gram 的商品评价模型</h3>
+        <div class="work-meta mono" data-i18n="works.w4.m">NLP · TEXT MINING · 美赛 M</div>
+        <p data-i18n="works.w4.d">以 n-gram 与相关性分析提取亚马逊商品评价的关键特性，构建双线性回归方程预测产品口碑走势。</p>
+        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
+      </a>
+
+      <!-- HITA -->
+      <a class="work-card reveal" href="hita.html">
+        <div class="work-shot">
+          <img class="dither-plain"
+               src="images/hita_glance.png"
+               alt="HITSZ 助手界面"
+               onerror="this.onerror=null;this.src='https://placehold.co/640x360/F4EFE6/9A7B2D?text=HITA';">
+        </div>
+        <h3 data-i18n="works.w5.t">HITSZ 助手 — 智能校园信息平台</h3>
+        <div class="work-meta mono" data-i18n="works.w5.m">ANDROID · 问答系统 · 4200 用户</div>
+        <p data-i18n="works.w5.d">端云结合的校园信息平台：课表、社区、智能问答与敏感内容检测，覆盖大部分哈深本科生，日活 2500。</p>
+        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
+      </a>
+
+      <!-- 沙漠掘金 -->
+      <a class="work-card reveal" href="cumcm2020.html">
+        <div class="work-shot">
+          <img class="dither-plain"
+               src="images/cumcm2020_prob1.png"
+               alt="沙漠掘金路径模型"
+               onerror="this.onerror=null;this.src='https://placehold.co/640x360/F4EFE6/9A7B2D?text=DESERT';">
+        </div>
+        <h3 data-i18n="works.w6.t">「沙漠掘金」多情景最优决策模型</h3>
+        <div class="work-meta mono" data-i18n="works.w6.m">动态规划 · 博弈论 · 国二</div>
+        <p data-i18n="works.w6.d">针对单人与多人在确定 / 概率天气下的路径决策，给出动态规划与混合 Nash 博弈模型，获国赛二等奖。</p>
+        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
+      </a>
+
+    </div>
+  </main>
+
+  <script type="module" src="assets/js/layout.js"></script>
+</body>
+</html>

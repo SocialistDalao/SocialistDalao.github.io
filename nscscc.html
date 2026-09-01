@@ -1,6 +1,19 @@
-<div style = "padding:20px;">
+<!DOCTYPE html>
+<html lang="zh-CN" data-filter="amber">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UltraMIPS — 李程浩 LoanCold</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/fallback.js" defer></script>
+</head>
+<body>
 
-<a href="./index.html" >返回主页</a>
+  <main class="doc-body">
+    <a class="doc-back" href="works.html">← 返回作品</a>
 <h1>FPGA上基于双发射处理器的UltraMIPS系统</h1>
 
 <img border="0" src="./images/nscscc_overview.png" alt="nscscc_score" height="300">
@@ -79,6 +92,10 @@
 
 <p>实际上，为了方便进行动态取指和对指令 Cache 执行相应的动态指令预取，我们将动态取指的控制器模块也放在了 Cache 顶层模块，用来动
     态的控制指令 Cache 的取指以及 PC 的变化，这也是本人负责的开发部分。但是在上述结构图中我们去除了该部件，将其看作 CPU 中的一部分。
-    
+
 </p>
-</div>
+  </main>
+
+  <script type="module" src="assets/js/layout.js"></script>
+</body>
+</html>
