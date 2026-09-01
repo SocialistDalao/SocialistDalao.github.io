@@ -52,6 +52,7 @@ const DICT = {
     en: 'From FPGA soft cores to Rust multicore kernels, and now Web performance for WeChat Mini Games, I am fascinated by making every layer of abstraction fast. I also write poetry. This is the clean edition — for my wilder side, tap the golden seal at the bottom right.',
   },
   'pro.contact':  { zh: '联系 · loancold@foxmail.com', en: 'Contact · loancold@foxmail.com' },
+  'pro.resume':   { zh: '个人简历 PDF', en: 'Résumé PDF' },
   'magic.tip':    { zh: '进入另一面', en: 'ENTER THE OTHER SIDE' },
   'art.back.tip': { zh: '回到简洁版', en: 'BACK TO CLEAN' },
 
@@ -99,7 +100,7 @@ const DICT = {
   'about.h8':     { zh: '第六届全国青年人工智能创新创业大会 创新组一等奖', en: 'First Prize (Innovation), 6th National Youth AI Innovation & Entrepreneurship Conference' },
   'about.h.other':{ zh: '其他荣誉', en: 'Other Honors' },
   'about.h9':     { zh: '哈工大（深圳）大一立项优秀项目奖', en: 'Outstanding Freshman Project Award, HIT (Shenzhen)' },
-  'about.h11':    { zh: '浙江大学优秀研究生', en: 'Outstanding Graduate Student, Zhejiang University' },
+  'about.h11':    { zh: '浙江大学优秀研究生 / 五好研究生', en: 'Outstanding Graduate Student & Five-Virtues Graduate, Zhejiang University' },
   'about.h12':    { zh: '软件工程顶会 ICSE (CCF-A) 一作一篇', en: 'ICSE (CCF-A) first-author paper' },
   'about.s5':     { zh: 'V. 关键词', en: 'V. Keywords' },
   'about.tag.1':  { zh: 'WebAssembly', en: 'WebAssembly' },
@@ -148,6 +149,42 @@ const DICT = {
   'works.w6.d':   {
     zh: '针对单人与多人在确定 / 概率天气下的路径决策，给出动态规划与混合 Nash 博弈模型，获国赛二等奖。',
     en: 'Dynamic programming and mixed-Nash game models for route decisions under certain / probabilistic weather, for single and multiple players. National Second Prize.',
+  },
+  'works.w7.t':   { zh: 'Rust 编译器不稳定特性研究', en: 'Demystifying Rust Unstable Feature Usage' },
+  'works.w7.m':   { zh: 'ICSE (CCF-A) · 一作 · Rust', en: 'ICSE (CCF-A) · FIRST AUTHOR · RUST' },
+  'works.w7.d':   {
+    zh: '软件工程顶会 ICSE (CCF-A) 一作；自研生态解析器解析 248M 依赖（99% 正确率），发现至多 44% 生态受影响、12% 无法编译。',
+    en: 'ICSE (CCF-A) first-author paper; custom parser analyzes 248M transitive deps (99% precision), revealing up to 44% ecosystem impact.',
+  },
+  'works.w8.t':   { zh: '基于 Rust 的系统搭建、防护与攻击', en: 'Building, Defending & Attacking Systems with Rust' },
+  'works.w8.m':   { zh: 'RUST FOR LINUX · 跨语言安全 · 2021-2023', en: 'RUST FOR LINUX · CROSS-LANGUAGE SECURITY · 2021-2023' },
+  'works.w8.d':   {
+    zh: 'Rust for Linux 驱动框架、混合安全语言系统预研、C/C++ 与 Rust 交互的 ABI 安全检测工具。',
+    en: 'Rust-for-Linux driver framework, hybrid memory-safe system prototyping, and ABI checker for C/C++ ↔ Rust interop security.',
+  },
+  'works.w9.t':   { zh: 'All-in-Cloud：云计算挑战与展望', en: 'All-in-Cloud: Challenges & Future of AiC' },
+  'works.w9.m':   { zh: '综述论文 · 学术英语 · 2019', en: 'SURVEY PAPER · ACADEMIC ENGLISH · 2019' },
+  'works.w9.d':   {
+    zh: '云计算领域综述（约 8k 字），比较云计算与边缘计算，展望云上时代的挑战与机遇。',
+    en: 'A ~8k-word cloud computing survey comparing cloud vs. edge computing and outlooking the cloud-native era.',
+  },
+  'works.w10.t':  { zh: 'HITSZ 通知新闻搜索引擎：Naive SE', en: 'Naive SE — Campus News Search Engine' },
+  'works.w10.m':  { zh: 'LUCENE · IKANALYZER · TOMCAT', en: 'LUCENE · IKANALYZER · TOMCAT' },
+  'works.w10.d':  {
+    zh: '基于 Lucene / IKAnalyzer / Tomcat 的中文校园搜索引擎，信息检索课程项目。',
+    en: 'A Chinese campus search engine built with Lucene / IKAnalyzer / Tomcat (Information Retrieval course project).',
+  },
+  'works.w11.t':  { zh: 'MIT xv6 6.S081 实验（2019）', en: 'MIT xv6 6.S081 Labs (2019)' },
+  'works.w11.m':  { zh: '操作系统 · 独立完成 1-9', en: 'OPERATING SYSTEMS · LABS 1-9' },
+  'works.w11.d':  {
+    zh: '独立完成 MIT 操作系统实验 1-9（Utilities / Shell / Lazy / CoW / Lock / Mmap 等）。',
+    en: 'Independently completed MIT OS labs 1–9 (Utilities, Shell, Lazy, CoW, Lock, Mmap, …).',
+  },
+  'works.w12.t':  { zh: '计算机网络全协议栈实验', en: 'Full Network Protocol-Stack Labs' },
+  'works.w12.m':  { zh: 'VLAN · RIP · NAT · SOCKET', en: 'VLAN · RIP · NAT · SOCKET' },
+  'works.w12.d':  {
+    zh: 'VLAN / RIP / NAT 配置、以太帧抓包解析与 Socket 编程，覆盖 ETH / ARP / IP / ICMP / UDP 全栈。',
+    en: 'VLAN/RIP/NAT configuration, Ethernet frame analysis and socket programming across ETH/ARP/IP/ICMP/UDP.',
   },
 
   /* ---------- 博客页 ---------- */

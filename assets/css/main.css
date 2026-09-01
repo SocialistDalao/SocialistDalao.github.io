@@ -460,6 +460,20 @@ h1, h2, h3, h4 {
   transition: transform .12s steps(2);
 }
 .work-shot img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.2); }
+/* 无图项目的文字占位 */
+.work-shot--text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--light);
+}
+.work-shot-title {
+  font-family: var(--font-serif, "Noto Serif SC", serif);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
 .work-card h3 { font-size: 19px; margin: 0 0 6px; }
 .work-card .work-meta { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; opacity: .6; margin-bottom: 10px; }
 .work-card p { font-size: 14px; margin: 0 0 12px; opacity: .8; }
