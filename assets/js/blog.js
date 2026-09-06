@@ -5,7 +5,7 @@
    数据源契约（未来接入 Notion 只需新增同接口实现）：
      class PostsSource { fetch() -> Promise<Post[]> }
      Post: { id, title, titleEn?, date, category, excerpt, url }
-     category: 'poem' | 'thought' | 'misc'
+     category: 'travel' | 'poem' | 'thought' | 'misc'
    当前实现：LocalJsonSource('data/posts.json')
    ============================================================ */
 
@@ -101,7 +101,7 @@ function mountWave() {
 }
 
 /* ---------- 列表渲染（双语） ---------- */
-const CATEGORIES = ['all', 'poem', 'thought', 'misc'];
+const CATEGORIES = ['all', 'travel', 'poem', 'thought', 'misc'];
 
 class BlogApp {
   constructor(source) {

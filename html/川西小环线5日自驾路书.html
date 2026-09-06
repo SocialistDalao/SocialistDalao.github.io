@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-filter="amber" data-mode="pro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>川西小环线 5 日自驾路书 — 李程浩 LoanCold</title>
+<meta name="description" content="6 人 7 座 MPV 的川西小环线 5 日自驾路书：成都—四姑娘山—丹巴—塔公—新都桥—康定—成都，全程 904 km，含路线地图、逐日时刻表、预算与避坑清单。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="stylesheet" href="../assets/vendor/leaflet/leaflet.css">
+<script src="../assets/js/fallback.js" defer></script>
+<style>
+:root{
+  --bg:#F7F6F3;--card:#FFFFFF;--line:#E3E1D9;--line2:#C9C6BC;
+  --tx:#2C2C2A;--tx2:#5F5E5A;--tx3:#888780;
+  --blue:#185FA5;--blue-bg:#E6F1FB;--blue-line:#85B7EB;
+  --red:#A32D2D;--red-bg:#FCEBEB;
+  --green:#3B6D11;--green-bg:#EAF3DE;
+  --amber:#854F0B;--amber-bg:#FAEEDA;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+ font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+ font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}
+header{margin-bottom:22px;padding-bottom:18px;border-bottom:2px solid var(--tx)}
+h1{font-size:25px;font-weight:600;margin:0 0 8px;letter-spacing:-.3px}
+.sub{color:var(--tx2);font-size:13px;margin:0}
+h2{font-size:18px;font-weight:600;margin:40px 0 14px;padding-left:10px;border-left:4px solid var(--blue)}
+h3{font-size:15px;font-weight:600;margin:22px 0 10px}
+h4{font-size:14px;font-weight:600;margin:14px 0 8px;color:var(--tx2)}
+p{margin:0 0 10px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0;background:var(--card);
+ border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th{background:#F1EFE8;text-align:left;font-weight:600;padding:10px 12px;border-bottom:1px solid var(--line2);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ok{color:var(--green);font-weight:600}
+.bad{color:var(--red);font-weight:600}
+.warn{color:var(--amber);font-weight:600}
+.tag{display:inline-block;padding:1px 8px;border-radius:5px;font-size:12px;font-weight:600;line-height:1.6}
+.tag-ok{background:var(--green-bg);color:var(--green)}
+.tag-no{background:var(--red-bg);color:var(--red)}
+.tag-wa{background:var(--amber-bg);color:var(--amber)}
+ul{margin:8px 0;padding-left:20px}li{margin:4px 0}
+ol{margin:8px 0;padding-left:22px}
+.note{background:var(--amber-bg);border-left:3px solid var(--amber);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0;font-size:13px}
+.key{background:var(--red-bg);border-left:3px solid var(--red);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0;font-size:13px}
+.tip{background:var(--green-bg);border-left:3px solid var(--green);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.m{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.m .l{font-size:12px;color:var(--tx2)}
+.m .v{font-size:20px;font-weight:600;margin-top:2px;font-variant-numeric:tabular-nums}
+.ck{list-style:none;padding-left:0}
+.ck li{padding-left:26px;position:relative;margin:6px 0}
+.ck li::before{content:"";position:absolute;left:0;top:5px;width:14px;height:14px;border:1.5px solid var(--line2);border-radius:3px}
+#map{height:440px;width:100%;border-radius:12px;border:1px solid var(--line);background:#EEF0F2;z-index:1}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 0;font-size:12px;color:var(--tx2)}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{width:18px;height:3px;border-radius:2px;display:inline-block}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin:16px 0 0}
+.tab{padding:9px 15px;border:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:9px 9px 0 0;
+ background:#EFEDE7;cursor:pointer;font-size:13px;font-weight:500;color:var(--tx2);margin-bottom:-1px;user-select:none}
+.tab:hover{background:#E6E3DB}
+.tab.on{background:var(--card);color:var(--tx);font-weight:600;border-bottom:1px solid var(--card)}
+.panel{display:none;background:var(--card);border:1px solid var(--line);border-top:none;
+ border-radius:0 0 12px 12px;padding:18px 20px}
+.panel.on{display:block}
+.ph{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;padding:8px 12px;border-radius:8px;margin:-4px -4px 14px}
+.ph .d{font-size:15px;font-weight:600;color:#fff}
+.ph .r{font-size:13px;color:#fff;opacity:.93}
+.tl{width:100%;border:none;margin:0}
+.tl td{border-bottom:1px dashed var(--line);padding:7px 8px;font-size:13px}
+.tl td:first-child{width:82px;color:var(--tx2);font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:500}
+.tl td:last-child{width:88px;text-align:right;color:var(--tx3);font-size:12px}
+.tl tr:last-child td{border-bottom:none}
+.rb-footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line2);font-size:12px;color:var(--tx3)}
+.rb-footer a{color:var(--blue);text-decoration:none}.rb-footer a:hover{text-decoration:underline}
+@media print{#map{height:320px}body{background:#fff}table{break-inside:avoid}.panel{display:block!important}}
+/* ---- 与站点外壳（layout.js 注入的 header / footer）适配 ---- */
+.rb-top{max-width:960px;margin:0 auto;padding:20px 20px 0}
+.rb h1,.rb h2,.rb h3,.rb h4{font-family:inherit}
+[data-mode="art"] .site-header{background:var(--shadow);border-bottom-color:var(--light)}
+[data-mode="art"] .site-footer{background:var(--shadow);color:var(--light);border-top-color:var(--light)}
+</style>
+</head>
+<body>
+
+<div class="rb-top">
+  <a class="doc-back" href="../blog.html">← 返回博客</a>
+</div>
+
+<main class="wrap rb">
+
+<header>
+  <h1>川西小环线 5 日自驾路书</h1>
+  <p class="sub">6 人 · 7 座 MPV · 2026年9月23日（周三）— 9月27日（周日）<br>
+  成都双流机场取车还车 · 9/27 20:00 天府机场航班 · 全程约 904 km · 海拔 500–4 401 m</p>
+</header>
+
+<h2>行程亮点</h2>
+<div class="grid">
+  <div class="m"><div class="l">总里程</div><div class="v">904 km</div></div>
+  <div class="m"><div class="l">最高海拔</div><div class="v">4 401 m</div></div>
+  <div class="m"><div class="l">核心景区</div><div class="v">5 处</div></div>
+  <div class="m"><div class="l">人均预算</div><div class="v">¥2,809 起</div></div>
+</div>
+<ul>
+<li><b>一条不走回头路的环线</b>——成都出发经四姑娘山、丹巴、塔公、新都桥、康定回到成都，全程无重复路段，把 G350 熊猫大道、G248 高原走廊、S434 塔北路三条景观公路一次走完。</li>
+<li><b>海拔节奏是有设计的</b>——首晚 3 200 m 适应 → 次日降到丹巴 1 880 m 休整 → 第 4 天才翻全程唯一的 4 401 m 垭口。团队有 3 晚适应期，比"第二天就冲垭口"的走法安全得多。</li>
+<li><b>两套风景系统是分开的</b>——前半程看四姑娘山的雪山与沟谷，后半程看丹巴的嘉绒藏寨与墨石地质奇观，避免同类景观连看产生审美疲劳。</li>
+<li><b>真正在地的部分都在这条线上</b>——中路藏寨的千年古碉、梭坡的 84 座古碉群、居里寺的手抄《甘珠尔》、康定情歌广场市民自发的锅庄舞，全部免费且非表演性质。</li>
+<li><b>返程日走全程高速</b>——最后一天从康定经雅叶高速直达成都，避开 G350 映秀—卧龙段的地质灾害管制区，赶飞机的可控性最高。</li>
+</ul>
+
+<h2>路线地图</h2>
+<div id="map" role="img" aria-label="川西小环线五日路线地图">地图加载中…</div>
+<div class="legend">
+  <span><i style="background:#185FA5"></i>D1 成都→四姑娘山</span>
+  <span><i style="background:#3B6D11"></i>D2 四姑娘山→丹巴</span>
+  <span><i style="background:#BA7517"></i>D3 丹巴→墨石→塔公→新都桥</span>
+  <span><i style="background:#0F6E56"></i>D4 新都桥→S434→木格措→康定</span>
+  <span><i style="background:#A32D2D"></i>D5 康定→成都</span>
+</div>
+<p class="sub">深底圆点为当晚住宿地，灰点为途经节点。点击圆点可查看详情。底图坐标系与标记点一致，无偏移。</p>
+
+<h2>海拔剖面</h2>
+<svg viewBox="0 0 680 372" width="100%" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>川西小环线逐日海拔剖面</title>
+<desc>成都500米经巴朗山隧道3850米至四姑娘山镇3200米，第二日到双桥沟3840米后降至丹巴1880米，第三日经墨石3500米、塔公3730米至新都桥3300米，第四日翻越最高点亚拉山口4401米后降至康定2560米，第五日回到成都500米。</desc>
+<rect x="80" y="18" width="8" height="8" rx="1" fill="#185FA5"/>
+<text x="94" y="24" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" fill="#5F5E5A">住宿地</text>
+<circle cx="160" cy="22" r="4" fill="#185FA5"/>
+<text x="170" y="24" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" fill="#5F5E5A">途经点</text>
+<circle cx="234" cy="22" r="4.5" fill="#A32D2D"/>
+<text x="244" y="24" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" fill="#5F5E5A">最高点</text>
+
+<text x="130.9" y="163" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#5F5E5A">D1</text>
+<text x="232.7" y="163" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#5F5E5A">D2</text>
+<text x="360" y="163" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#5F5E5A">D3</text>
+<text x="512.8" y="163" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#5F5E5A">D4</text>
+<text x="614.6" y="163" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#5F5E5A">D5</text>
+
+<rect x="80" y="170" width="560" height="28" fill="#FCEBEB"/>
+<text x="636" y="184" text-anchor="end" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="11" fill="#A32D2D">4000m 高反阈值</text>
+
+<line x1="80" y1="170" x2="640" y2="170" stroke="#D3D1C7" stroke-width="0.5"/>
+<line x1="80" y1="198" x2="640" y2="198" stroke="#D3D1C7" stroke-width="0.5"/>
+<line x1="80" y1="226" x2="640" y2="226" stroke="#D3D1C7" stroke-width="0.5"/>
+<line x1="80" y1="254" x2="640" y2="254" stroke="#D3D1C7" stroke-width="0.5"/>
+<line x1="80" y1="282" x2="640" y2="282" stroke="#D3D1C7" stroke-width="0.5"/>
+<text x="72" y="170" text-anchor="end" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="11" fill="#888780">5000</text>
+<text x="72" y="198" text-anchor="end" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="11" fill="#888780">4000</text>
+<text x="72" y="226" text-anchor="end" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="11" fill="#888780">3000</text>
+<text x="72" y="254" text-anchor="end" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="11" fill="#888780">2000</text>
+<text x="72" y="282" text-anchor="end" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="11" fill="#888780">1000</text>
+
+<line x1="181.8" y1="168" x2="181.8" y2="310" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="3 3"/>
+<line x1="283.6" y1="168" x2="283.6" y2="310" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="3 3"/>
+<line x1="436.4" y1="168" x2="436.4" y2="310" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="3 3"/>
+<line x1="589.1" y1="168" x2="589.1" y2="310" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="3 3"/>
+
+<path d="M80,296 L130.9,202 L181.8,220 L232.7,203 L283.6,257 L334.5,212 L385.5,206 L436.4,218 L487.3,187 L538.2,204 L589.1,238 L640,296 L640,310 L80,310 Z" fill="#E6F1FB"/>
+<polyline points="80,296 130.9,202 181.8,220 232.7,203 283.6,257 334.5,212 385.5,206 436.4,218 487.3,187 538.2,204 589.1,238 640,296" fill="none" stroke="#185FA5" stroke-width="1.5" stroke-linejoin="round"/>
+<line x1="80" y1="310" x2="640" y2="310" stroke="#888780" stroke-width="0.5"/>
+
+<circle cx="80" cy="296" r="3.5" fill="#185FA5"/>
+<circle cx="130.9" cy="202" r="3.5" fill="#185FA5"/>
+<rect x="178.3" y="216.5" width="7" height="7" fill="#185FA5"/>
+<circle cx="232.7" cy="203" r="3.5" fill="#185FA5"/>
+<rect x="280.1" y="253.5" width="7" height="7" fill="#185FA5"/>
+<circle cx="334.5" cy="212" r="3.5" fill="#185FA5"/>
+<circle cx="385.5" cy="206" r="3.5" fill="#185FA5"/>
+<rect x="432.9" y="214.5" width="7" height="7" fill="#185FA5"/>
+<circle cx="487.3" cy="187" r="4.5" fill="#A32D2D"/>
+<circle cx="538.2" cy="204" r="3.5" fill="#185FA5"/>
+<rect x="585.6" y="234.5" width="7" height="7" fill="#185FA5"/>
+<circle cx="640" cy="296" r="3.5" fill="#185FA5"/>
+<text x="487.3" y="179" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#A32D2D">4401m</text>
+
+<text x="80" y="332" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" fill="#2C2C2A">成都</text>
+<text x="181.8" y="332" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" fill="#2C2C2A">四姑娘山</text>
+<text x="283.6" y="332" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" fill="#2C2C2A">丹巴</text>
+<text x="385.5" y="332" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" fill="#2C2C2A">塔公</text>
+<text x="487.3" y="332" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" fill="#2C2C2A">亚拉山口</text>
+<text x="589.1" y="332" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" fill="#2C2C2A">康定</text>
+<text x="130.9" y="347" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" fill="#2C2C2A">巴朗山隧道</text>
+<text x="232.7" y="347" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" fill="#2C2C2A">双桥沟</text>
+<text x="334.5" y="347" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" fill="#2C2C2A">墨石</text>
+<text x="436.4" y="347" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" fill="#2C2C2A">新都桥</text>
+<text x="538.2" y="347" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" fill="#2C2C2A">木格措</text>
+<text x="640" y="347" text-anchor="end" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="12" fill="#2C2C2A">成都</text>
+</svg>
+<div class="note"><b>这样读这张图：</b>① 全程只有<b>一个点</b>（亚拉山口 4 401 m）突破 4 000 m 高反阈值，且只是短暂通过；② <b>D1 首晚在 3 200 m</b>，是全程唯一需要认真对待的适应夜，选带弥散供氧的酒店即可对冲；③ <b>D2 晚上降到丹巴 1 880 m</b>，是全程最好的恢复窗口；④ 4 401 m 被安排在第 4 天，此时团队已有 3 晚高原适应。</div>
+
+<h2>逐日行程</h2>
+<div class="tabs" id="tabs">
+  <div class="tab on" data-t="p0">D0 · 9/22 成都</div>
+  <div class="tab" data-t="p1">D1 · 9/23 四姑娘山</div>
+  <div class="tab" data-t="p2">D2 · 9/24 双桥沟→丹巴</div>
+  <div class="tab" data-t="p3">D3 · 9/25 墨石→新都桥</div>
+  <div class="tab" data-t="p4">D4 · 9/26 S434→康定</div>
+  <div class="tab" data-t="p5">D5 · 9/27 返程</div>
+</div>
+
+<div class="panel on" id="p0">
+  <div class="ph" style="background:#5F5E5A"><span class="d">D0 · 9月22日（周二）</span><span class="r">双流机场 T2 取车 → 住成都 · 海拔 500 m</span></div>
+  <table class="tl">
+    <tr><td>取车</td><td><b>四项门店确认：</b>① 合同允许驶入甘孜州/阿坝州；② <b>不限里程</b>（904 km ÷ 6 天 = 151 km/天，日限 120 km 会超标，超里程 1–2 元/km）；③ 保险含轮胎/玻璃/划痕；④ 备胎与随车工具齐全</td><td>—</td></tr>
+    <tr><td>采购</td><td>氧气瓶（<b>成都 15–25 元/罐，景区 40–50 元</b>，6 人全程省 300–600 元）、指夹血氧仪 2 个、红景天、葡萄糖、布洛芬/感冒药/肠胃药/晕车药、路餐、保温壶、现金 2 000–3 000 元</td><td>—</td></tr>
+    <tr><td>数字</td><td>下载高德/百度"四川 + 甘孜 + 阿坝"离线地图包</td><td>—</td></tr>
+  </table>
+  <div class="key"><b>今晚就要做的两件事：全队开始服用红景天（需提前 7–15 天）；确认 9/9 起开放预约的四姑娘山门票（最早提前 14 天）。</b></div>
+</div>
+
+<div class="panel" id="p1">
+  <div class="ph" style="background:#185FA5"><span class="d">D1 · 9月23日（周三）</span><span class="r">成都 → 四姑娘山镇 · 205 km / 3h41m · 宿 3 200 m</span></div>
+  <table class="tl">
+    <tr><td>08:00</td><td>成都出发，绕城→蓉昌高速→都汶高速→映秀</td><td>0 km</td></tr>
+    <tr><td>10:00</td><td>映秀。可选：5·12 汶川特大地震映秀震中纪念馆（免费，40 min）</td><td>≈90 km</td></tr>
+    <tr><td>10:45</td><td>进入 G350 熊猫大道。<b>映秀—卧龙段有地灾动态管制，遇单边放行耐心等待，严禁抢行</b></td><td>—</td></tr>
+    <tr><td>11:30</td><td>穿越<b>巴朗山隧道</b>（3 850 m，5–8 min）。<b>隧道内不停车</b></td><td>≈180 km</td></tr>
+    <tr><td>11:45</td><td><b>猫鼻梁观景台</b>（免费）：四姑娘山四峰全景最佳机位，20 min</td><td>≈200 km</td></tr>
+    <tr><td>12:15</td><td>抵达四姑娘山镇，入住<b>带弥散供氧的酒店</b></td><td>205 km</td></tr>
+    <tr><td>12:45</td><td>午餐。<b>今日不安排爬升型活动</b>，全员血氧基线测量</td><td>—</td></tr>
+    <tr><td>14:00</td><td>缓步活动：<b>樟木寨</b>（当地最大嘉绒藏寨，"垒石为室"建筑，免费）或斯古拉文旅城唐卡体验馆</td><td>—</td></tr>
+    <tr><td>18:00</td><td><b>《神山下的婚礼》实景演出</b>（88 元/人，18:00–21:00，18:30 停售，0837-2796666）。容中尔甲团队制作，含藏戏藏俗、哈达煨桑仪式、锅庄互动、藏式土火锅</td><td>—</td></tr>
+    <tr><td>21:00</td><td><b>睡前血氧监测</b>，开启房间弥散供氧</td><td>—</td></tr>
+  </table>
+  <div class="tip"><b>今天是适应日，不是赶路日。</b>海拔从 500 m 直上 3 200 m，缓步、不跑跳、<b>不饮酒、不洗澡</b>、不饱食。今晚睡得好，后面四天才玩得动。</div>
+  <div class="note"><b>如果抵达早、全员状态好</b>，14:00 后可加长坪沟口轻徒步（不进景区，沟口一带海拔与镇上持平），但<b>不建议这天去双桥沟</b>——那会把当日最高活动海拔推到 3 840 m，显著增加高反概率。</div>
+</div>
+
+<div class="panel" id="p2">
+  <div class="ph" style="background:#3B6D11"><span class="d">D2 · 9月24日（周四）</span><span class="r">双桥沟 → 丹巴 · 110 km / 2h26m（+施工缓冲）· 宿 1 880 m</span></div>
+  <table class="tl">
+    <tr><td>07:00</td><td>早餐，<b>全员血氧监测</b>。确认无人不适再进景区</td><td>—</td></tr>
+    <tr><td>08:00</td><td>进<b>双桥沟</b>（8:00 开园）。观光车直达终点红杉林 3 840 m，逐站玩回：红杉林→布达拉峰→四姑娜措→撵鱼坝→隆珠措→人参果坪</td><td>0 km</td></tr>
+    <tr><td>12:00</td><td>出园。<b>自带路餐可避开沟内溢价</b>（泡面 25 元、简餐 60 元起）</td><td>—</td></tr>
+    <tr><td>12:30</td><td>午餐（野菌王牦牛肉汤锅，人均 60–90 元）</td><td>—</td></tr>
+    <tr><td>13:30</td><td>出发往丹巴，G350 经小金</td><td>—</td></tr>
+    <tr><td>15:00</td><td><b>半扇门镇施工段</b>：单边交替放行，间隔约 30 min。<b>已按 +1 h 预留</b></td><td>≈70 km</td></tr>
+    <tr><td>17:00</td><td>抵达丹巴，入住<b>中路藏寨或甲居藏寨</b>（不住县城）</td><td>110 km</td></tr>
+    <tr><td>17:30</td><td><b>中路藏寨</b>（免费）：千年古碉、原始嘉绒生活，商业气息淡于甲居</td><td>+10 km</td></tr>
+    <tr><td>18:30</td><td><b>梭坡古碉群</b>（免费）：84 座古碉含罕见五角碉，石砌技艺国家级非遗。<b>大渡河对岸远眺最佳，日落时分光线最好</b></td><td>+5 km</td></tr>
+    <tr><td>19:30</td><td>晚餐（川味记忆野菌牦牛肉汤锅，人均 60–80 元）</td><td>—</td></tr>
+  </table>
+  <div class="tip"><b>今天海拔净降 1 320 m</b>（3 200 → 1 880），是全程恢复效果最好的一晚。若有人在 D1 出现轻度高反，今晚基本明显缓解。</div>
+  <div class="note"><b>取舍：</b>① 沟内<b>撵鱼坝漂流 90 元/人</b>（30 min、水流平缓）性价比一般，6 人即 540 元，栈道景观相同且免费，<b>建议跳过</b>；② 中路 + 甲居 + 梭坡三个全去会赶，<b>推荐中路（主）+ 梭坡日落（次）</b>，甲居（50 元/人）作为备选。</div>
+</div>
+
+<div class="panel" id="p3">
+  <div class="ph" style="background:#BA7517"><span class="d">D3 · 9月25日（周五·中秋第1天）</span><span class="r">丹巴 → 墨石公园 → 塔公 → 新都桥 · 146 km / 3h11m · 宿 3 300 m</span></div>
+  <div class="key" style="margin-top:0"><b>中秋假期第一天，景区人流上升。两个动作：① 早上 7:00 前起床，把藏寨晨景在旅行团到达前看完；② 墨石公园务必提前 1 天线上订票。</b></div>
+  <table class="tl">
+    <tr><td>07:00</td><td><b>藏寨晨景</b>：中路藏寨清晨光线最好，青稞田与古碉同框，免费</td><td>0 km</td></tr>
+    <tr><td>08:30</td><td>早餐，出发前往墨石公园，G248</td><td>—</td></tr>
+    <tr><td>10:40</td><td><b>墨石公园</b>（60 + 观光车 20 = 80 元/人）。前门进后门出，单向不走回头路，1.5–2 h</td><td>90 km</td></tr>
+    <tr><td>12:40</td><td>午餐（八美镇）</td><td>—</td></tr>
+    <tr><td>13:40</td><td>出发 → <b>塔公草原 / 木雅金塔 / 塔公寺</b>（清洁费 30–35 元/人），停留 1 h</td><td>107 km</td></tr>
+    <tr><td>15:00</td><td>出发 → 新都桥，G248</td><td>—</td></tr>
+    <tr><td>16:00</td><td>抵达新都桥，入住<b>村落民宿</b>（新一村 / 营官村 / 瓦泽乡，不住镇上）</td><td>146 km</td></tr>
+    <tr><td>17:00</td><td><b>居里寺</b>（免费，1–2 h）：47 代堪布的黄教古寺，藏手抄《甘珠尔》108 卷（全球仅存三部）、六七百年壁画、酥油花</td><td>+8 km</td></tr>
+    <tr><td>19:00</td><td>晚餐（民宿藏餐，人均 60–90 元）；血氧监测</td><td>—</td></tr>
+  </table>
+  <div class="note"><b>清晨彩蛋（可选）：瓦泽乡晨炊烟</b>，6:30–7:30 岔路口机位，9 月青稞黄、白杨金，免费。</div>
+</div>
+
+<div class="panel" id="p4">
+  <div class="ph" style="background:#0F6E56"><span class="d">D4 · 9月26日（周六·中秋第2天）</span><span class="r">新都桥 → S434 → 亚拉山口 → 木格措 → 康定 · 107 km / 2h26m · 宿 2 560 m</span></div>
+  <div class="key" style="margin-top:0"><b>全程最高点日（4 401 m）。铁律：垭口单次停留 ≤ 15 分钟、下车必穿外层、不在车行道停留拍照、垭口在 10:00–16:00 之间通过。</b></div>
+  <table class="tl">
+    <tr><td>07:00</td><td>早餐，血氧监测</td><td>—</td></tr>
+    <tr><td>08:00</td><td>出发，G248 → G318 → S434 北上</td><td>0 km</td></tr>
+    <tr><td>09:20</td><td>经<b>甘孜康定机场</b>（4 280 m）</td><td>≈50 km</td></tr>
+    <tr><td>09:40</td><td><b>亚拉山口 / 加尕措（4 401 m / 4 388 m）</b>——全程最高点。<b>停留 ≤ 15 min</b>，不奔跑</td><td>≈62 km</td></tr>
+    <tr><td>10:30</td><td><b>红海子</b>（卫生费约 60 元/车或 20–30 元/人），30 min。<b>只在正规停车区下车</b></td><td>≈70 km</td></tr>
+    <tr><td>11:30</td><td>抵达<b>木格措</b>，换乘观光车进沟，游览 3–3.5 h（措海子→杜鹃峡→药池沸泉→七色海→芳草坪）</td><td>87 km</td></tr>
+    <tr><td>15:00</td><td>出园，午餐</td><td>—</td></tr>
+    <tr><td>16:00</td><td>出发 → 康定（S434）。<b>康定新城驷马桥新桥头—G18 辅线全封闭至 9/30</b>，按导航绕行（阿尔卑斯转盘↔康巴大酒店↔康定中学）</td><td>—</td></tr>
+    <tr><td>16:40</td><td>抵达康定，入住。可选：<b>中谷村温泉</b>（99 元/人，8:00–23:59，距康定约 20 km）——已适应 4 天，今晚泡正合适</td><td>107 km</td></tr>
+    <tr><td>19:30</td><td>晚餐（藏佳宴，人均 60–80 元：牛肉盖被、手抓牛肉、血肠、酥油包子）</td><td>—</td></tr>
+    <tr><td>20:00</td><td><b>情歌广场锅庄舞</b>（免费）：市民自发圆圈舞，游客可随时加入。溜溜城、将军桥另有藏族弹唱与木雅藏戏街头演艺</td><td>—</td></tr>
+  </table>
+  <div class="note"><b>备选路线：</b>若 S434 因天气或施工管制，改走 <b>G318 折多山</b>（新都桥→康定约 75 km），放弃红海子与亚拉山口，改打卡折多山垭口（4 298 m）。折多山常年堵车、易管制，属次选。</div>
+</div>
+
+<div class="panel" id="p5">
+  <div class="ph" style="background:#A32D2D"><span class="d">D5 · 9月27日（周日·中秋最后一天）</span><span class="r">康定 → 双流还车 → 地铁 → 天府机场 · 20:00 航班</span></div>
+  <div class="key" style="margin-top:0"><b>中秋假期最后一天，成都周边返程最高峰。康定→双流正常 3h23m，必须按 5 h 预留。今天的目标只有一个：准点把人送到天府机场。</b></div>
+  <table class="tl">
+    <tr><td>08:30</td><td>早餐，退房，行李装车。<b>前一晚就收拾好，今天不安排任何景点</b></td><td>—</td></tr>
+    <tr><td>09:00</td><td><b>康定出发</b>，雅叶高速 → 京昆高速 → 成渝环线 → 成都绕城 → 机场高速</td><td>0 km</td></tr>
+    <tr><td>12:00</td><td>服务区午餐（避开高峰拥堵时段；<b>在最后一个服务区加满油</b>，机场加油站溢价）</td><td>≈150 km</td></tr>
+    <tr><td>14:00</td><td>抵达<b>双流机场 T2，还车</b>。手续约 40 min</td><td>263 km</td></tr>
+    <tr><td>14:45</td><td>步行至<b>双流机场 2 航站楼东站</b>，乘<b>地铁 19 号线</b>（天府机场北方向）</td><td>—</td></tr>
+    <tr><td>15:30</td><td class="ok"><b>争取 15:30 的 19 号线直达车</b>——10 元 / <b>约 30 分钟</b>，最高时速 160 km/h，每日 6 班（06:30、11:30、13:30、15:30、21:30、22:30）</td><td>—</td></tr>
+    <tr><td>16:00</td><td>抵达<b>天府机场 1号2号航站楼站</b>。<b>距 20:00 起飞尚有 4 h 缓冲</b></td><td>—</td></tr>
+    <tr><td>备选</td><td>错过渡直达车 → 坐 <b>19 号线普线</b>（10 元 / 约 50 分钟，12 站，随到随走），16:20 前到机场，仍有 3.5 h 缓冲</td><td>—</td></tr>
+  </table>
+  <div class="tip"><b>19 号线是这条转运链的最优解</b>：双流机场 2 航站楼<b>东</b>站直达天府机场，<b>无需换乘</b>，票价 10 元。相比换乘方案（10 号线→9 号线→18 号线，11 元 / 约 65 分钟）省时且不用搬着行李换线。</div>
+  <div class="key"><b>三个硬约束：</b>① <b>康定 09:00 必须发车</b>——晚一小时，15:30 直达车就没了；② 注意是<b>「双流机场 2 航站楼东」站</b>（19 号线），不是 10 号线的「双流机场 2 航站楼」站，两个站不同；③ 6 人带行李过安检、进地铁，预留 30 min 步行与换乘缓冲。</div>
+  <div class="note"><b>还车注意：</b>① 未加满油按市场价 1.5–2 倍补收；② 超时还车通常按半天租金（175–275 元）计；③ 违章押金一般 2 000–5 000 元，30 天后解冻，需占用现金流。</div>
+</div>
+
+<h2>关键决策</h2>
+<table>
+<tr><th style="width:130px">决策项</th><th>结论</th><th>一句话理由</th></tr>
+<tr><td><b>环线方向</b></td><td><b>逆时针</b>：成都→四姑娘山→丹巴→新都桥→康定→成都</td><td>返程日康定→成都走<b>全程高速</b>（296 km / 3h38m），而顺时针从四姑娘山返程要走 G350 山区路（265 km / 4h55m，且该段有地灾管制）——赶飞机那天必须避开</td></tr>
+<tr><td><b>D1 强度</b></td><td><b>低强度适应日</b>，双桥沟放到 D2 上午</td><td>首日最高活动海拔控制在 3 200 m 而非 3 840 m，急性高反发生率从 40–60% 降到 30–50%，且不影响 D2 之后的全部行程</td></tr>
+<tr><td><b>D1 住宿</b></td><td>四姑娘山镇，<b>必须选带弥散供氧的酒店</b></td><td>首晚 3 200 m 是全程唯一需要认真对待的适应夜，弥散供氧是最有效的硬件对冲手段</td></tr>
+<tr><td><b>D2 住宿</b></td><td>住<b>中路 / 甲居藏寨内</b>，不住丹巴县城</td><td>丹巴的价值在藏寨晨昏，住县城等于错过；且海拔 1 880 m 是全程最好的恢复点</td></tr>
+<tr><td><b>D3 住宿</b></td><td>新都桥<b>村落民宿</b>，不住镇上</td><td>镇上本质是三岔路口、无藏地氛围、318 大车噪音大；真正的画面在清晨的村落里</td></tr>
+<tr><td><b>D5 转运</b></td><td>双流还车 → <b>地铁 19 号线直达</b>天府机场</td><td>10 元 / 30 分钟 / 无需换乘，是双机场间性价比最高的方式</td></tr>
+<tr><td><b>泸定桥</b></td><td class="warn">不安排</td><td>返程日时间紧张，且不顺路于最终动线</td></tr>
+</table>
+<div class="note"><b>时间窗口提醒：</b>2026 年<b>中秋节放假为 9/25—9/27</b>（国办发明电〔2025〕7号，国庆 10/1—7）。本行程成功避开了国庆高峰，但 D3/D4/D5 落在中秋假期内——<b>9/27 是假期最后一天、成都周边返程最高峰</b>，这是 D5 必须 09:00 发车、按 5 h 预留的根本原因。</div>
+
+<h2>深度体验</h2>
+<h3>住宿</h3>
+<table>
+<tr><th style="width:110px">住宿地</th><th>推荐</th><th>为什么算"在地"</th><th class="num">2026 参考价/间</th></tr>
+<tr><td rowspan="3"><b>D1 四姑娘山</b><br>3 200 m<br><span class="warn">关键：弥散供氧</span></td><td><b>斯古拉庄园酒店</b><br>金字街4号，长坪沟游客中心旁100m</td><td>歌手容中尔甲投建的嘉绒藏式独栋木屋，园区含唐卡体验馆、演艺中心。<b>医用级中央弥散供氧 + 鼻吸式、24h 地暖</b></td><td class="num">280 元起</td></tr>
+<tr><td><b>烟岚雪岫·藏地人文民宿</b><br>长坪村一组042号（长青山寨旁）</td><td>半山嘉绒聚落内，自驾直达门口，到镇上 3 分钟</td><td class="num">699 元起</td></tr>
+<tr><td>Forest Vacation 圣洁酒店<br>沙坝村一组045号，邻双桥沟</td><td>全场地暖，一楼中餐厅用本地食材</td><td class="num">235 元起</td></tr>
+<tr><td rowspan="3"><b>D2 丹巴</b><br>1 880 m<br><span class="warn">住寨内</span></td><td><b>寂·野山谷民宿</b><br>梭坡乡莫洛村1组13号</td><td><b>紧邻梭坡古碉群</b>（84 座古碉，石砌技艺国家级非遗）的藏家小院</td><td class="num">453 元起</td></tr>
+<tr><td><b>青鸟民宿</b><br>中路藏寨克格依村一组29号</td><td>青稞田中，保留嘉绒民居古拙风貌，直面墨尔多神山，评分 4.9</td><td class="num">468 元起</td></tr>
+<tr><td><b>隐栖堂·古村乡韵美宿</b><br>中路呷仁依村，二号观景点北80m</td><td>藏式外貌 + 现代内饰，步行可达千年古碉</td><td class="num">492 元起</td></tr>
+<tr><td rowspan="2"><b>D3 新都桥</b><br>3 300 m<br><span class="warn">住村落</span></td><td><b>米拉·看山氧宿</b><br>营关村1栋，距居里寺10分钟</td><td><b>藏人经营</b>，含青稞饼酥油茶早餐，可体验种植采摘、骑马</td><td class="num">143 元起</td></tr>
+<tr><td><b>木雅色景民宿</b><br>新一村一组25号</td><td>木雅藏房改造，2025 新开，评分 4.8</td><td class="num">140 元起</td></tr>
+<tr><td rowspan="2"><b>D4 康定</b><br>2 560 m</td><td><b>卓玛石头温泉民宿</b><br>雅拉乡中谷村一组52号，S434 旁</td><td>康定最古老泉眼之一，依石依河而建的森林温泉。<b>住这里可顺带泡汤，免去往返</b></td><td class="num">270 元起</td></tr>
+<tr><td>康定山河汇民宿<br>雅拉乡王母村1组75号</td><td>一楼餐厅做时令山珍，主理人提供西部线路咨询</td><td class="num">186 元起</td></tr>
+</table>
+<h3>免费 · 真正在地</h3>
+<table>
+<tr><th style="width:150px">项目</th><th>地点 / 时段</th><th>说明</th></tr>
+<tr><td><b>情歌广场锅庄舞</b></td><td>康定东大街156号<br>D4 晚</td><td>市民自发的圆圈舞，围成两三个圈，游客可随时加入。溜溜城、将军桥另有藏族弹唱、木雅藏戏街头演艺。融入本地人日常最直接的方式</td></tr>
+<tr><td><b>居里寺</b></td><td>新都桥瓦泽乡居里村<br>D3 傍晚</td><td>47 代堪布的黄教古寺，藏手抄《甘珠尔》108 卷（全球仅存三部）、六七百年壁画、酥油花。1–2 h</td></tr>
+<tr><td><b>梭坡古碉群</b></td><td>丹巴梭坡乡，距县城 5 km<br>D2 傍晚</td><td>84 座古碉含罕见五角碉，石砌技艺 2008 年入选国家级非遗，含嘉绒古碉楼民俗博物馆。<b>大渡河对岸远眺最佳</b></td></tr>
+<tr><td><b>中路藏寨</b></td><td>丹巴聂呷乡<br>D2 傍晚 / D3 晨</td><td>无统一门票，商业气息淡于甲居，百年古碉 + 原始藏寨生活。康波古碉楼观景台 08:00–18:00</td></tr>
+<tr><td><b>樟木寨</b></td><td>四姑娘山镇长坪沟口<br>D1 下午</td><td>当地最大嘉绒藏寨，保留"垒石为室"建筑风格</td></tr>
+<tr><td><b>猫鼻梁观景台</b></td><td>G350 旁<br>D1 途经</td><td>四姑娘山四峰全景最佳机位</td></tr>
+<tr><td><b>瓦泽乡晨炊烟</b></td><td>新都桥<br>D3 晨（可选）</td><td>6:30–7:30 岔路口机位，9 月青稞黄、白杨金</td></tr>
+</table>
+<h3>付费 · 值得</h3>
+<table>
+<tr><th style="width:150px">项目</th><th>地点 / 时段</th><th>说明</th><th class="num">价格</th></tr>
+<tr><td><b>《神山下的婚礼》</b></td><td>斯古拉文旅城<br>D1 18:00–21:00</td><td>容中尔甲团队制作的嘉绒实景演出，含藏歌藏舞藏戏藏俗、哈达煨桑仪式、锅庄互动、藏式土火锅。<b>需 18:30 前购票</b>，0837-2796666</td><td class="num">88 元/人</td></tr>
+<tr><td><b>嘉绒黑陶手作</b></td><td>丹巴莫洛村非遗工坊</td><td>约 2 h，传承人带捏陶坯，成品数天后邮寄。<b>须提前 1–3 天预约</b></td><td class="num">约 80–150 元/人<br><span class="warn">需询价</span></td></tr>
+<tr><td><b>嘉绒刺绣 / 打酥油茶</b></td><td>中路基卡依村、甲居寨内民宿</td><td>绣杯垫挂饰，绣娘手把手，材料包带走。住店客人可就近参加</td><td class="num">约 60–120 元/人</td></tr>
+<tr><td><b>中谷村温泉</b></td><td>康定雅拉乡中谷村，3 000 m<br>D4 傍晚</td><td>雪山下露天硫磺池，8:00–23:59。<b>抵高原首日不宜泡</b>，D4 已适应 4 天正合适</td><td class="num">99 元/人<br>双人 138 元</td></tr>
+<tr><td>甲居藏寨</td><td>丹巴<br>D2 / D3</td><td>《中国国家地理》评"中国最美六大乡村古镇"之首，观景台间可自驾。若时间紧可让位于中路</td><td class="num">50 元/人</td></tr>
+</table>
+<h3>餐饮（本地人向）</h3>
+<table>
+<tr><th style="width:100px">地点</th><th>店名 / 类型</th><th>招牌</th><th class="num">人均</th></tr>
+<tr><td>四姑娘山</td><td>野菌王牦牛肉汤锅（金峰村44-1号）</td><td>嘉绒藏式土火锅、牦牛排、牛肝菌</td><td class="num">60–90 元</td></tr>
+<tr><td>四姑娘山</td><td>长坪驿多肉花园餐厅（长坪村三组15号）</td><td>藏式牦牛肉铜火锅、松茸炒饭、青稞酸奶</td><td class="num">70–100 元</td></tr>
+<tr><td>丹巴县城</td><td>川味记忆野菌牦牛肉汤锅（三岔河北路85号）</td><td>野生菌汤锅、干拌牦牛肉、青稞酒，评分 4.9</td><td class="num">60–80 元</td></tr>
+<tr><td>丹巴县城</td><td>郑姐私房菜（双拥路1号）／回家吃饭（三岔河南路38号）</td><td>凉拌鸡、藿香鲫鱼、腊肉土豆片、松茸炖鸡</td><td class="num">50–70 元</td></tr>
+<tr><td>丹巴甲居</td><td>郎太家特色餐（甲居一村1组19号）</td><td>火烧子馍馍、酥油茶、农家腊肉、酸菜包子</td><td class="num">50–70 元</td></tr>
+<tr><td>新都桥</td><td>木亚嘉绒倾城民宿藏餐</td><td>藏餐 + 本地艺人锅庄、手抓羊肉、现烤青稞饼</td><td class="num">60–90 元</td></tr>
+<tr><td>康定</td><td>藏佳宴（沿河东路437号，近将军桥）</td><td>牛肉盖被、手抓牛肉、血肠、酥油包子</td><td class="num">60–80 元</td></tr>
+<tr><td>康定</td><td>回味小吃（30 年老店）</td><td>手工甜水面、热凉粉</td><td class="num">15–25 元</td></tr>
+</table>
+
+<h2>避坑清单</h2>
+<table>
+<tr><th style="width:150px">对象</th><th>结论</th><th>说明</th></tr>
+<tr><td><b>鱼子西 / 格底拉姆 / 八郎生都</b></td><td><span class="tag tag-no">不去</span></td><td>收费确凿：清洁费 30 元/人 + 中转车 60 元/人，节假日摆渡可至 100 元。属私人/村集体观景台，<b>必须换乘当地车</b>，常因防火、天气、政策临时关闭。<b>且这三个点都在塔公以南的反方向，与本行程走向不符。</b></td></tr>
+<tr><td><b>莫斯卡村土拨鼠</b></td><td><span class="tag tag-no">不去</span></td><td>丹巴县城→莫斯卡约 75–76 km，<b>单程约 3 小时</b>，旺季真实点评记录"70 公里开了 8 个小时"。往返即 6–8 小时，5 天塞不下；<b>且 9 月下旬土拨鼠已准备冬眠，活跃度低</b>。</td></tr>
+<tr><td><b>S434 马路拍照</b></td><td><span class="tag tag-no">禁止</span></td><td>康定机场彩虹路已发生游客在<b>弯路马路中间下腰拍照</b>事件，甘孜警方公开通报追查。占道拍摄违反《道路交通安全法》第 31 条。<b>只在正规停车区下车。</b></td></tr>
+<tr><td><b>G350"高原服务中心"</b></td><td><span class="tag tag-no">不进</span></td><td>溢价 3–5 倍。案例：白大褂假扮医务人员讲高反 → 推销氧气 68 元/瓶（镇上仅 20 元）。<b>2025 年问政四川官方回复确认已责令停业整改并退款。</b>氧气在成都买（15–25 元）或镇上药店（20–25 元）。</td></tr>
+<tr><td><b>双桥沟漂流</b></td><td><span class="tag tag-wa">可跳过</span></td><td>90 元/人，30 min、水流平缓，6 人即 540 元，而沟内草甸栈道免费且景观相同。<b>沟内餐饮溢价明显</b>（泡面 25 元、简餐 60 元起），自带路餐。</td></tr>
+<tr><td><b>路边藏药 / 天珠 / 银饰</b></td><td><span class="tag tag-no">不碰</span></td><td>高反状态下判断力下降，是这类摊点最活跃的场景。路边散装牦牛肉干大量为猪肉掺假（网评，非官方）。</td></tr>
+<tr><td><b>村口私马</b></td><td><span class="tag tag-no">拒绝</span></td><td>只在景区官方窗口买票。村口私马普遍半路加价。</td></tr>
+<tr><td><b>新都桥"摄影天堂"</b></td><td><span class="tag tag-wa">警惕</span></td><td>最典型的网红包装：镇区无大门、无门票，本质是个三岔路口。<b>真正的画面在清晨的村落里。</b></td></tr>
+</table>
+
+<h2>门票与预约</h2>
+<table>
+<tr><th style="width:120px">景区</th><th class="num">门票</th><th class="num">观光车</th><th>开放 / 停止入园</th><th>预约</th><th>优待与禁止</th></tr>
+<tr><td><b>四姑娘山·双桥沟</b></td><td class="num">80</td><td class="num">70<br>（套 147–150）</td><td>4/1–11/30 <b>08:00–17:30<br>15:00 停止入园</b></td><td><b class="bad">必须线上实名预约。</b>公众号"四姑娘山景区"/阿坝旅游网 abatour.com/小程序"一部手机游阿坝"，<b>最早提前 14 天</b></td><td>60+ 非节假日免票、65+ 免票、学生半价、1.2m 以下免；<b>禁宠物、禁火源火种</b>；日承载 2 万人次</td></tr>
+<tr><td><b>康定木格措</b></td><td colspan="2" class="num">套票 185<br>（门票 105 + 车 90）</td><td>旺季 <b>07:30–16:30<br>16:30 停止入园</b></td><td>公众号"木格措景区"；携程可随买随用随时退</td><td>1.2m 以下免门票+车；65+ 免门票；60–65 非节假日免门票；学生/未成年门票 5 折</td></tr>
+<tr><td><b>墨石公园</b></td><td class="num">60</td><td class="num">20</td><td>5/1–10/31 <b>08:30–18:00<br>18:00 停止入园</b></td><td>可当天订（18:00 前），公众号"墨石公园景区"。<b>建议提前 1 天</b></td><td>1.2m 以下免、65+ 免、学生半价、军人/残疾/警察免；<b>观光车不参与优惠</b>；禁飞无人机</td></tr>
+<tr><td>甲居藏寨</td><td class="num">50</td><td class="num">无强制</td><td>全天</td><td>随买随用，无需预约</td><td>6 周岁以下/1.2m 以下免、65+ 免、学生半价</td></tr>
+<tr><td><b>中路藏寨</b></td><td class="num ok">免费</td><td class="num">—</td><td>全天</td><td>无需预约</td><td>—</td></tr>
+</table>
+<div class="note"><b>票务电话：</b>四姑娘山 400-688-6250｜木格措 0836-2828218 / 2825570｜墨石公园 0836-7155958｜甲居藏寨 0836-3521330<br>
+<b>隐性二次消费：</b>木格措圣湖游船约 66 元/人、药池沸泉泡脚 35 元；塔公草原清洁费 30–35 元/人、红海子卫生费 20–30 元/人（或 60 元/车）；沿途收费厕所 1–5 元/次（备零钱）。</div>
+
+<h2>预算</h2>
+<p class="sub">6 人 / 6 天。油价按 <b>9.0 元/L</b>（成都 92# 挂牌 8.99 元/L，2026-04-16；甘孜三价区另 +0.15 元/L）。</p>
+<table>
+<tr><th style="width:40px">#</th><th style="width:140px">科目</th><th class="num">经济档</th><th class="num">舒适档</th><th>估算依据</th></tr>
+<tr><td>1</td><td>租车费（6 天）</td><td class="num">2,100</td><td class="num">3,300</td><td>经济 350 元/天（传祺 M8/大通 G10 级）、舒适 550 元/天（GL8/腾势 D9 级）</td></tr>
+<tr><td>2</td><td>车辆保险</td><td class="num">360</td><td class="num">480</td><td>不计免赔 + 划痕 + 轮胎玻璃，60/80 元/天 × 6 天</td></tr>
+<tr><td>3</td><td>油费</td><td class="num">976</td><td class="num">976</td><td><b>904 ÷ 100 × 12 L × 9.0 元 = 108.48 L × 9.0 = 976 元</b></td></tr>
+<tr><td>4</td><td>过路费 + 地铁</td><td class="num">278</td><td class="num">278</td><td>实测过路费 ¥184（D1 ¥47 + D5 ¥137）+ 19 号线 10 元/人 × 6 = ¥60；停车另计</td></tr>
+<tr><td>5</td><td>停车费</td><td class="num">150</td><td class="num">200</td><td>双桥沟沟口约 3 h 10 元起，木格措/甲居各 10–20 元</td></tr>
+<tr><td>6</td><td>门票 + 观光车</td><td class="num">2,850</td><td class="num">3,390</td><td>经济 475 元/人（双桥沟 150 + 甲居 50 + 墨石 80 + 木格措 185 + 泸定桥 10）；舒适加长坪沟 90 元/人</td></tr>
+<tr><td>7</td><td>体验项目</td><td class="num">0</td><td class="num">1,122</td><td>经济档只走免费项目；舒适档含演出 88 + 温泉 99 = 187 元/人</td></tr>
+<tr><td>8</td><td>住宿（5 晚 × 3 间）</td><td class="num">4,350</td><td class="num">7,860</td><td>每间/晚：经济 180+240+230+<b>380</b>+<b>420</b>＝1,450×3；舒适 320+420+400+<b>700</b>+<b>780</b>＝2,620×3。<b>D3/D4 属中秋假期，已按 +65%/+80% 计入</b></td></tr>
+<tr><td>9</td><td>餐饮（6 人 × 6 天）</td><td class="num">3,600</td><td class="num">6,480</td><td>经济 100 元/人/天；舒适 180 元/人/天</td></tr>
+<tr><td>10</td><td>装备采购</td><td class="num">700</td><td class="num">1,100</td><td>氧气瓶 30 元/瓶 × 8–12、红景天/感冒药/葡萄糖约 200、路餐约 300</td></tr>
+<tr style="background:#F1EFE8"><td>—</td><td><b>小计</b></td><td class="num"><b>15,364</b></td><td class="num"><b>25,186</b></td><td>—</td></tr>
+<tr><td>11</td><td>应急预留 8%</td><td class="num">1,229</td><td class="num">2,015</td><td>建议区间 5–10%</td></tr>
+<tr style="background:#E6F1FB"><td colspan="2"><b>6 人合计</b></td><td class="num"><b>¥16,593</b></td><td class="num"><b>¥27,201</b></td><td>15,364×1.08＝16,593；25,186×1.08＝27,201</td></tr>
+<tr style="background:#E6F1FB"><td colspan="2"><b>人均</b></td><td class="num"><b>¥2,766</b></td><td class="num"><b>¥4,534</b></td><td>—</td></tr>
+</table>
+<h4>隐性成本（上表未含，务必预留）</h4>
+<ul>
+<li><b>超里程费</b>：904 km ÷ 6 天 = 151 km/天，日限 80–120 km 的方案<b>大概率超标</b>，超里程 1–2 元/km，可能额外 500–1,000 元。<b>租车时务必争取不限里程。</b></li>
+<li><b>违章押金</b>：2 000–5 000 元，还车时预收，30 天后解冻（占用现金流）。</li>
+<li><b>还车加油差价</b>：未加满按市场价 1.5–2 倍补收；机场加油站溢价。</li>
+<li><b>ETC 服务费</b>：租车公司 ETC 常按原价扣费 + 收 5%–15% 服务费。</li>
+</ul>
+
+<h2>路段实测</h2>
+<table>
+<tr><th>日期</th><th>路段</th><th class="num">里程</th><th class="num">用时</th><th>备注</th></tr>
+<tr><td>D1</td><td>双流T2 → 四姑娘山镇</td><td class="num">205.2 km</td><td class="num">3h41m</td><td>过路费 ¥47；<b>映秀—卧龙段有地灾动态管制</b></td></tr>
+<tr><td>D2</td><td>四姑娘山镇 → 丹巴县城</td><td class="num">109.7 km</td><td class="num">2h26m</td><td><b>半扇门镇 K1093+400—K1096+605 施工，单边交替放行约 30 min 间隔（9/9—11/30，法定节假日不施工）</b></td></tr>
+<tr><td>D3</td><td>丹巴 → 墨石公园</td><td class="num">90.4 km</td><td class="num">2h08m</td><td>G248，路况最优段</td></tr>
+<tr><td>D3</td><td>墨石公园 → 塔公草原</td><td class="num">16.5 km</td><td class="num">19 min</td><td>G248</td></tr>
+<tr><td>D3</td><td>塔公草原 → 新都桥</td><td class="num">38.7 km</td><td class="num">51 min</td><td>G248</td></tr>
+<tr><td>D4</td><td>新都桥 → 木格措</td><td class="num">87.4 km</td><td class="num">1h56m</td><td>S434，<b>途经亚拉山口 4 401 m</b></td></tr>
+<tr><td>D4</td><td>木格措 → 康定</td><td class="num">19.4 km</td><td class="num">30 min</td><td>途经红海子；<b>康定新城驷马桥段封闭至 9/30</b></td></tr>
+<tr><td>D5</td><td>康定 → 双流机场T2</td><td class="num">262.8 km</td><td class="num">3h23m</td><td>过路费 ¥137；<b>中秋返程高峰按 5 h 预留</b></td></tr>
+<tr><td>D5</td><td>双流T2 → 天府T1（地铁19号线）</td><td class="num">—</td><td class="num">30–50 min</td><td>10 元/人，直达无需换乘</td></tr>
+<tr style="background:#F1EFE8"><td colspan="2"><b>自驾段合计</b></td><td class="num"><b>830 km</b></td><td class="num"><b>15h14m</b></td><td>另加 D0 市区约 40 km 与景点支线，总里程约 <b>904 km</b></td></tr>
+</table>
+
+<h2>天气与路况</h2>
+<div class="key"><b>9/23—9/27 的具体天气预报要到 9/20 前后才准。</b>下表是气候统计规律，用于决定带什么装备，不要据此锁定某天玩某景点。</div>
+<table>
+<tr><th style="width:150px">地点</th><th class="num">海拔</th><th class="num">白天</th><th class="num">夜间</th><th>降水 / 风 / 紫外线</th></tr>
+<tr><td>四姑娘山镇</td><td class="num">3 200 m</td><td class="num">15–22℃</td><td class="num">0–5℃</td><td>午后阵雨，月均雨日约 10 天；2–3 级；极强</td></tr>
+<tr><td>丹巴</td><td class="num">1 880 m</td><td class="num">19–24℃</td><td class="num">8–12℃</td><td>河谷干暖，全线雨日最少；1–2 级；强</td></tr>
+<tr><td>新都桥</td><td class="num">3 300 m</td><td class="num">13–19℃</td><td class="num">3–8℃</td><td>阵雨，9 月雨日约 10 天；早晚 3–4 级；极强</td></tr>
+<tr><td>康定</td><td class="num">2 560 m</td><td class="num">18–23℃</td><td class="num">7–11℃</td><td><b>年际波动极大</b>（2023 年 9 月 61 mm / 2025 年 442 mm）；2–3 级；强</td></tr>
+<tr><td><b>高海拔垭口</b></td><td class="num">4 200 m+</td><td class="num">2–8℃</td><td class="num bad">-5–0℃</td><td>阵雪概率中低但真实；<b>清晨背阴面暗冰概率中等</b>；6–8 级；极强</td></tr>
+</table>
+<h4>路况要点（查证日期 2026-09-06）</h4>
+<ul>
+<li><b>G350 映秀—卧龙段（D1 必经）</b>：2026/8/18 因关门沟、观音庙泥石流落石全封闭，8/19 抢通<b>便道</b>。官方明确"仍有多处高危地灾点，不间断临时管制、单边放行、遇雨立即恢复管制，严禁逗留"。<b>备选：成都—都汶高速—理县—理小路—小金—四姑娘山（+1.5–2 h）。</b></li>
+<li><b>S434 新都桥—康定段（D4 主线）</b>：柏油 95%+，弯多，无单向放行，低–中风险。<b>备选：G318 折多山（约 75 km，常年堵车，次选）。</b></li>
+<li><b>康定新城驷马桥新桥头—G18 辅线</b>：<b>全封闭至 2026/9/30</b>，进出康定需绕行（阿尔卑斯转盘↔康巴大酒店↔康定中学）。</li>
+<li><b>G248 丹巴—八美—塔公—新都桥</b>：柏油，本行程路况最优段，低风险。</li>
+</ul>
+<div class="key"><b>9/27 是中秋假期最后一天、成都周边返程最高峰。</b>未查到川西针对中秋的专项管制公告，但<b>真正风险是车流而非管制</b>。<b>出发前 3 天用「甘孜交警」「阿坝交警」「四川交警」公众号 + 12122 各核一遍；天气查中国天气网 /「甘孜气象」「阿坝气象」。</b></div>
+
+<h2>装备清单</h2>
+<h4>必买（成都出发前买齐）</h4>
+<table>
+<tr><th style="width:180px">品项</th><th style="width:170px">数量</th><th class="num">单价</th><th>购买地</th></tr>
+<tr><td>便携氧气瓶 1 400 ml</td><td><b>人均 3 罐 = 18 罐 + 备用 4 罐</b></td><td class="num">成都 15–25<br>康定 25–35<br><b class="bad">景区 40–50</b></td><td class="ok"><b>成都药店/电商</b>，6 人全程省 300–600 元</td></tr>
+<tr><td>指夹式血氧仪</td><td>2 个（分组同时测）</td><td class="num">80–150</td><td>成都 / 网购</td></tr>
+<tr><td>红景天</td><td>6 盒，<b>提前 7–15 天开始服</b></td><td class="num">30–80</td><td>成都药店</td></tr>
+<tr><td>葡萄糖口服液 / 粉</td><td>2 盒</td><td class="num">20–40</td><td>成都</td></tr>
+<tr><td>布洛芬 / 感冒药 / 蒙脱石散+黄连素 / 晕车药</td><td>各 2 盒</td><td class="num">15–40</td><td>成都</td></tr>
+<tr><td>乙酰唑胺（处方，125 mg q12h 预防）</td><td>遵医嘱</td><td class="num">—</td><td>出发前医院开具</td></tr>
+<tr><td>保温壶 1 L</td><td>2 个</td><td class="num">60–150</td><td>成都</td></tr>
+<tr><td>离线地图</td><td>四川 + 甘孜 + 阿坝离线包</td><td class="num ok">免费</td><td>出发前</td></tr>
+<tr><td>现金</td><td>2 000–3 000 元</td><td class="num">—</td><td>成都（红海子卫生费、厕所、偏远加油）</td></tr>
+</table>
+<h4>强烈建议</h4>
+<ul>
+<li><b>三层穿衣（每人）</b>：内层速干<b>禁纯棉</b> 1–2 件 / 中层抓绒或薄羽绒 1 件 / 外层三合一冲锋衣防水 ≥10 000 mm + 冲锋裤 + 保暖帽手套 + 厚袜 2 双。全套 700–1 900 元。</li>
+<li><b>防晒</b>：SPF50+ PA++++（每 2 h 补涂）+ UV400 偏光墨镜 + 宽檐帽 + 润唇膏。200–500 元。</li>
+<li><b>雨具</b>：<b>折叠雨衣优于雨伞</b>（垭口风大）。20–50 元/件。</li>
+<li><b>防滑链</b>（金属链，驱动轮）：<b>出发前必须在家练装 1 次</b>。150–400 元。</li>
+<li><b>应急启动电源</b> 200–500 元；<b>拖车绳</b> ≥5 吨 50–120 元；<b>数显充气泵</b> 12V 100–250 元。</li>
+</ul>
+
+<h2>高原健康</h2>
+<h3>分级处置</h3>
+<table>
+<tr><th style="width:90px">分级</th><th>识别标准</th><th>动作</th></tr>
+<tr><td><b>轻度</b></td><td>活动后头痛、气短、食欲差、失眠、心率快；血氧 90–94%（3 200 m）/ 85–90%（4 400 m）</td><td>停止上升、休息保暖、饮水 2–3 L/天、少食多餐、布洛芬止痛、弥散供氧；观察 4–6 h</td></tr>
+<tr><td><b>中度</b></td><td>剧烈头痛且止痛药无效、恶心呕吐、平地走路也喘、夜间憋醒；血氧 85–90%（3 200 m）或 &lt;85%（4 400 m）</td><td>持续吸氧、绝对卧床保暖、乙酰唑胺/地塞米松（医嘱）；<b>1–2 h 无改善立即下撤</b></td></tr>
+<tr><td class="bad"><b>重度</b><br>HAPE/HACE</td><td>静息也呼吸困难、咳白/粉红色泡沫痰、口唇发绀；意识模糊、<b>走路东倒西歪</b>、剧烈呕吐、嗜睡；血氧 &lt;85% 且不升</td><td class="bad"><b>高流量吸氧 + 半坐位（禁平躺）+ 立刻下撤，夜间也要走、不等天亮</b>；同时拨 120</td></tr>
+</table>
+<h3>下撤方案</h3>
+<table>
+<tr><th style="width:160px">住宿点</th><th>下撤目标</th><th class="num">距离/车程</th><th class="num">降幅</th></tr>
+<tr><td>四姑娘山镇 3 200 m</td><td><b>小金县人民医院</b> 2 300 m（<b>有高压氧舱</b>）</td><td class="num">55 km / 1.5 h</td><td class="num">-900 m</td></tr>
+<tr><td>四姑娘山镇 3 200 m</td><td>丹巴县人民医院 1 880 m</td><td class="num">110 km / 3 h</td><td class="num">-1 320 m</td></tr>
+<tr><td>丹巴 1 880 m</td><td>丹巴县人民医院（章谷镇嘉绒新区）</td><td class="num">0 km</td><td class="num">—</td></tr>
+<tr><td>新都桥 3 300 m</td><td>八美（道孚县中藏医院，<b>镇级有高压氧舱</b>）</td><td class="num">35 km / 40 min</td><td class="num">-100 m</td></tr>
+<tr><td>新都桥 3 300 m</td><td>康定市人民医院 2 560 m</td><td class="num">75 km / 2 h</td><td class="num">-740 m</td></tr>
+<tr><td>康定 2 560 m</td><td>康定市人民医院（向阳街63号，<b>高压氧舱 + 高原病小组</b>）</td><td class="num">城区内</td><td class="num">—</td></tr>
+</table>
+<p class="sub"><b>下降 500–1 000 m 症状即明显缓解。下撤优先于一切行程安排。</b><br>
+<b>沿途医院电话：</b>四姑娘山镇卫生院（景区救援 0837-2791999）｜小金县人民医院 0837-2785001｜丹巴县人民医院 0836-3523180｜道孚县中藏医院（八美）0836-8819383｜新都桥卫生院 0836-2866568（华西高原医学基地）｜康定市人民医院 0836-2811445 / 急诊 0836-2822431｜折多山警务站 0836-2822110。</p>
+<div class="key"><b>低温 × 高反叠加效应：</b>垭口夜间 -5–0℃、风寒再降 5–8℃ → 外周血管收缩、心率与耗氧上升，直接加重高反；出汗后湿衣 + 垭口大风 = 快速失温；<b>高原上感冒极易进展为肺水肿</b>。<br><b>应对：垭口单次停留 ≤15 分钟、下车必穿外层、车上常备干衣与热饮、垭口不奔跑拍照、所有垭口在 10:00–16:00 之间通过。</b></div>
+<p><b>不适合进入 3 500 m 以上区域者：</b>未控制高血压（≥160/100）、冠心病/心衰、近 6 个月心梗或支架/搭桥、严重心律失常、肺动脉高压、中重度 COPD/哮喘、未治疗睡眠呼吸暂停、<b>既往高原肺水肿/脑水肿史</b>、孕妇、3 岁以下婴幼儿、发热或急性上呼吸道/鼻窦/中耳炎活动期、严重贫血（Hb&lt;90 g/L）、癫痫未控制、近期气胸或胸腹部手术、服用抑制呼吸类药物者。<b>出行前建议全队做一次健康自查。</b></p>
+
+<h2>出发前清单</h2>
+<ul class="ck">
+<li><b class="bad">立即（9/6—9/9）</b>：<b>9/9 起抢四姑娘山门票</b>（最早提前 14 天）；一次性订完 5 晚住宿（D3/D4 属中秋假期，已涨价且房源紧张）；订带弥散供氧的四姑娘山酒店并<b>电话确认供氧形式</b></li>
+<li><b class="bad">立即</b>：全队开始服用红景天（需提前 7–15 天）</li>
+<li><b class="bad">立即</b>：确认租车方案——<b>不限里程</b>、允许驶入甘孜/阿坝、保险含轮胎玻璃划痕</li>
+<li><b>T-7 天</b>：墨石公园线上订票；预约丹巴黑陶/刺绣非遗手作（提前 1–3 天）；预约《神山下的婚礼》演出票</li>
+<li><b>T-3 天</b>：查「四川交警」「甘孜交警」「阿坝交警」+ 12122，核实 G350 映秀—卧龙段与半扇门施工段；查中国天气网 /「甘孜气象」「阿坝气象」逐日预报</li>
+<li><b>T-3 天</b>：致电木格措 0836-2828218 核实是否执行限流</li>
+<li><b>T-1 天</b>：下载离线地图；<b>在家练装一次防滑链</b>；全队健康自查；装车</li>
+<li><b>每日出发前</b>：查当日路况；加满油；全员血氧监测并记录</li>
+<li><b class="bad">D5</b>：康定 09:00 必须发车；<b>前一晚收拾好全部行李</b>；记牢是「双流机场 2 航站楼<b>东</b>」站（19 号线）</li>
+</ul>
+
+<footer class="rb-footer">
+<p><b>数据来源（2026-09-06 查证）</b></p>
+<ul>
+<li><b>节假日</b>：国务院办公厅《关于2026年部分节假日安排的通知》（国办发明电〔2025〕7号），中国政府网 gov.cn</li>
+<li><b>路段里程/用时/过路费/POI 坐标</b>：腾讯地图驾车路径规划与地点搜索 API 实测</li>
+<li><b>机场轨道换乘</b>：成都天府国际机场官网 sctfia.com、成都双流国际机场官网 cdairport.com</li>
+<li><b>门票、预约政策、优待、禁止携带物品</b>：携程问道 API（聚合景区官方数据）；四姑娘山风景名胜区管理局官网 sgns.cn</li>
+<li><b>住宿、在地活动、餐饮</b>：携程问道 API，并以马蜂窝、携程真实点评交叉验证"是否网红包装"</li>
+<li><b>避坑核实</b>：问政四川（ly.scol.com.cn，含 2025 年官方回复）、法治网 2025-09-12、凉山公安通报、携程/马蜂窝在售行程条款</li>
+<li><b>路况与管制</b>：阿坝州交通运输局、甘孜州交通运输局（jtj.gzz.gov.cn）、「甘孜交警」「阿坝交警」「四川交通执法」公众号</li>
+<li><b>天气</b>：气候统计综合历年气象记录、中国天气网；<b>逐日预报需 9/20 后查询</b></li>
+<li><b>油价</b>：四川发改委一价区 92# 挂牌 8.99 元/L（2026-04-16）</li>
+</ul>
+<p style="margin-top:12px"><b>免责与复核提示：</b>① 门票、房价、油价均为 2026 参考价或按 2025 年水平估算，实际以当日为准；② 高海拔通行受天气与施工影响，<b>出发前 3 天必须复核路况公告</b>；③ 本路书时间为畅通估值，实际按 1.5–1.8 倍预留，<b>D5 中秋返程高峰按 5 h 预留</b>；④ G350 映秀—卧龙段自 8/19 起为"便道 + 动态管制"，随时可能变化；⑤ 木格措限流人数未在官方渠道查到，需出行前电话核实；⑥ 底图为 Leaflet 加载的国内 GCJ-02 坐标瓦片，与标记点坐标系一致，无偏移。</p>
+</footer>
+
+</main>
+
+<script src="../assets/vendor/leaflet/leaflet.js"></script>
+<script>
+(function(){
+  var map = L.map('map',{scrollWheelZoom:false}).setView([30.55,102.9],8);
+  L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}',{
+    attribution:'底图数据 &copy; 高德地图',maxZoom:18,subdomains:'1234'
+  }).addTo(map);
+
+  var routes = [
+    {d:'D1',c:'#185FA5',pts:[
+      [30.570011,103.955243,'成都双流机场T2','取车 500m'],
+      [31.054135,103.487385,'映秀',''],
+      [30.927106,102.896801,'巴朗山隧道','3850m'],
+      [30.986351,102.843833,'猫鼻梁观景台',''],
+      [30.993839,102.830147,'四姑娘山镇','D1住 3200m']
+    ]},
+    {d:'D2',c:'#3B6D11',pts:[
+      [30.993839,102.830147,'四姑娘山镇','D1住'],
+      [30.979239,102.769608,'双桥沟','红杉林3840m'],
+      [30.995704,102.363149,'小金县',''],
+      [30.878703,101.890552,'丹巴县城',''],
+      [30.891556,101.939313,'中路藏寨','D2住 1880m']
+    ]},
+    {d:'D3',c:'#BA7517',pts:[
+      [30.878703,101.890552,'丹巴县城','D2住'],
+      [30.431274,101.539520,'墨石公园','3500m'],
+      [30.329812,101.554997,'塔公草原','3730m'],
+      [30.319404,101.522153,'塔公寺',''],
+      [30.045517,101.493313,'新都桥','D3住 3300m']
+    ]},
+    {d:'D4',c:'#0F6E56',pts:[
+      [30.045517,101.493313,'新都桥','D3住'],
+      [30.139922,101.740844,'甘孜康定机场','4280m'],
+      [30.180763,101.778726,'红海子',''],
+      [30.187651,101.904876,'木格措','3780m'],
+      [30.050533,101.964080,'康定','D4住 2560m']
+    ]},
+    {d:'D5',c:'#A32D2D',pts:[
+      [30.050533,101.964080,'康定','D4住'],
+      [29.911751,102.232124,'泸定桥','过路不停车'],
+      [30.570011,103.955243,'成都双流机场T2','还车·转地铁19号线']
+    ]}
+  ];
+
+  var seen = {};
+  routes.forEach(function(r){
+    var ll = r.pts.map(function(p){return [p[0],p[1]];});
+    L.polyline(ll,{color:r.c,weight:10,opacity:.15}).addTo(map);
+    L.polyline(ll,{color:r.c,weight:4,opacity:.85,lineJoin:'round'}).addTo(map);
+    r.pts.forEach(function(p,i){
+      var isEnd = (i===r.pts.length-1);
+      var key=p[2]; if(seen[key] && !isEnd) return; seen[key]=1;
+      var mk=L.circleMarker([p[0],p[1]],{radius:isEnd?8:5,color:'#fff',weight:2,
+        fillColor:isEnd?r.c:'#5F5E5A',fillOpacity:1}).addTo(map);
+      mk.bindPopup('<b>'+p[2]+'</b>'+(p[3]?'<br>'+p[3]:'')+'<br>日期：'+r.d);
+      mk.bindTooltip('<b>'+p[2]+'</b>'+(p[3]?'<br>'+p[3]:''),{direction:'top'});
+    });
+  });
+
+  var b=L.latLngBounds([]);
+  routes.forEach(function(r){r.pts.forEach(function(p){b.extend([p[0],p[1]]);});});
+  map.fitBounds(b,{padding:[32,32]});
+})();
+
+(function(){
+  var tabs = document.querySelectorAll('#tabs .tab');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('on');});
+      document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on');});
+      t.classList.add('on');
+      document.getElementById(t.getAttribute('data-t')).classList.add('on');
+    });
+  });
+})();
+</script>
+
+<script type="module" src="../assets/js/layout.js"></script>
+</body>
+</html>
