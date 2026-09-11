@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-CN" data-filter="amber" data-mode="art">
 <head>
+  <link rel="icon" href="favicon.svg">
   <meta charset="UTF-8">
+  <script>
+    try {
+      var q = new URLSearchParams(location.search).get('mode');
+      var h = location.hash.replace('#', '');
+      var m = (q === 'art' || h === 'art') ? 'art'
+            : (q === 'pro' || h === 'pro') ? 'pro'
+            : (localStorage.getItem('loancold.mode') === 'pro' ? 'pro' : 'art');
+      document.documentElement.setAttribute('data-mode', m);
+    } catch (e) { document.documentElement.setAttribute('data-mode', 'art'); }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All-in-Cloud: Challenges and Future Expectations of AiC — 李程浩 LoanCold</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,8 +24,8 @@
 <body>
 
   <main class="doc-body">
-    <a class="doc-back" href="works.html">← 返回作品</a>
-<h1>All-in-Cloud: Challenges and Future Expectations of AiC</h1>
+    <a class="doc-back" href="works.html" data-i18n="common.back.works">← 返回作品</a>
+<h1 data-i18n="page.aic">All-in-Cloud: Challenges and Future Expectations of AiC</h1>
     <p><a href="file/All-in-Cloud_challenges and future expectations of AiC.pdf">Paper</a>
     <p><a href="file/poster.pdf">Poster</a>
     </p>

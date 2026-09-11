@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN" data-filter="amber" data-mode="art">
 <head>
+  <link rel="icon" href="favicon.svg">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>作品 — 李程浩 LoanCold</title>
@@ -115,19 +116,26 @@
         <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
       </a>
 
-      <!-- RUF -->
-      <a class="work-card reveal" href="ruf.html">
-        <div class="work-shot">
-          <img class="dither-plain"
-               src="images/ruf_arch.jpg"
-               alt="RUF 架构"
-               onerror="this.onerror=null;this.src='https://placehold.co/640x360/F4EFE6/9A7B2D?text=RUF';">
-        </div>
-        <h3 data-i18n="works.w7.t">Rust 编译器不稳定特性研究</h3>
+      <!-- RUF（含 GitHub Star 徽章，故用 div 结构以支持多链接） -->
+      <div class="work-card reveal">
+        <a href="ruf.html">
+          <div class="work-shot">
+            <img class="dither-plain"
+                 src="images/ruf_arch.jpg"
+                 alt="RUF 架构"
+                 onerror="this.onerror=null;this.src='https://placehold.co/640x360/F4EFE6/9A7B2D?text=RUF';">
+          </div>
+        </a>
+        <h3><a href="ruf.html" data-i18n="works.w7.t">Rust 编译器不稳定特性研究</a></h3>
         <div class="work-meta mono" data-i18n="works.w7.m">ICSE (CCF-A) · 一作 · Rust</div>
         <p data-i18n="works.w7.d">软件工程顶会 ICSE (CCF-A) 一作；自研生态解析器解析 248M 依赖（99% 正确率），发现至多 44% 生态受影响、12% 无法编译。</p>
-        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
-      </a>
+        <div class="work-links">
+          <a href="ruf.html" data-i18n="works.more">详情 →</a>
+          <a class="gh-badge" href="https://github.com/ZJU-SEC/Cargo-Ecosystem-Monitor" target="_blank" rel="noopener" aria-label="RUF GitHub Stars">
+            <img src="https://img.shields.io/github/stars/ZJU-SEC/Cargo-Ecosystem-Monitor?style=social" alt="GitHub stars" loading="lazy" onerror="this.style.display='none'">
+          </a>
+        </div>
+      </div>
 
       <!-- Rust for System -->
       <a class="work-card reveal" href="rust4system.html">

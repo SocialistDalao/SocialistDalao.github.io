@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-CN" data-filter="amber" data-mode="pro">
 <head>
+  <link rel="icon" href="../favicon.svg">
   <meta charset="UTF-8">
+  <script>
+    try {
+      var q = new URLSearchParams(location.search).get('mode');
+      var h = location.hash.replace('#', '');
+      var m = (q === 'art' || h === 'art') ? 'art'
+            : (q === 'pro' || h === 'pro') ? 'pro'
+            : (localStorage.getItem('loancold.mode') === 'pro' ? 'pro' : 'art');
+      document.documentElement.setAttribute('data-mode', m);
+    } catch (e) { document.documentElement.setAttribute('data-mode', 'art'); }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>外卖惊魂录 — 李程浩 LoanCold</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,11 +24,11 @@
 <body>
 
   <main class="doc-body">
-    <a class="doc-back" href="../blog.html">← 返回博客</a>
+    <a class="doc-back" href="../blog.html" data-i18n="common.back.blog">← 返回博客</a>
 <!-- Main -->
 		
 			
-<h1> 外卖惊魂录</h1><p>2020.07.14
+<h1 data-i18n="post.waimai-jinghun"> 外卖惊魂录</h1><p>2020.07.14
 </p><p>要是将外卖说成是人间的一束曙光倒也不必，但是在外面35度的暴晒之下，外卖倒是成了美食家的遮阳伞。
 </p><p>作为一名大学生，如何准确而优雅的控制自己的花销已经被认定是千古难题，除了剁手后经济实惠餐，还有就是App卸载法，这些都是令人不快，甚至是要含泪做出的抉择。但是，若是自己又小有余额，但是又没办法承受淘宝带来的巨额亏损，那么要想给自己生活添点味，那就还得靠外卖。
 </p><p>四十分钟前的深思熟虑，让本就贫寒的家庭带来了更加沉重的餐饮支出。满打满算的小黄花，精确的将数字控制在了满减的边缘，试图在这个资本横流的世界之中，找寻自己触手可及的羊毛。叮咚一声，饿了么下单，接下来便是长达50分钟的漫长等待。这五十分钟毫无疑问是兴奋而又刺激的，五分钟一次轻撇手机，脑海中预备的手机铃声，都在让我在试图保持矜持的同时，与我大脑的美食欲望做着斗争。突然，下单后的十五分钟，我意识到，我下单的麻辣烫没有加入方便面，这可是中餐啊，没有方便面，没有方便面，没有方便面！天，我感受到了这款App对美食家的侮辱，在多日的等待中，等到了美食联盟的7元优惠卷，而这样的惊喜竟然在没事到来的前夕被我的手残所打破，这太可怕了，气愤ヾ(≧へ≦)〃，颤抖，浑身发冷。这人间的生活如此的狡诈，而我只能坦然面对它。

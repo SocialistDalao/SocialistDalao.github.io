@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-CN" data-filter="amber" data-mode="pro">
 <head>
+  <link rel="icon" href="../favicon.svg">
   <meta charset="UTF-8">
+  <script>
+    try {
+      var q = new URLSearchParams(location.search).get('mode');
+      var h = location.hash.replace('#', '');
+      var m = (q === 'art' || h === 'art') ? 'art'
+            : (q === 'pro' || h === 'pro') ? 'pro'
+            : (localStorage.getItem('loancold.mode') === 'pro' ? 'pro' : 'art');
+      document.documentElement.setAttribute('data-mode', m);
+    } catch (e) { document.documentElement.setAttribute('data-mode', 'art'); }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>五一感想 — 李程浩 LoanCold</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,11 +24,11 @@
 <body>
 
   <main class="doc-body">
-    <a class="doc-back" href="../blog.html">← 返回博客</a>
+    <a class="doc-back" href="../blog.html" data-i18n="common.back.blog">← 返回博客</a>
 <!-- Main -->
 		
 			
-<h1>五一感想</h1>
+<h1 data-i18n="post.wuxing-jiubian">五一感想</h1>
 <p>2021.05.01
 </p><p> 五一，结课，荒野乱斗，华为开发者大会，宵夜，准备保研，繁重的作业，以及其他。
 </p><p>这个五一到上一个五一的一年间，在对问题的分析和提出解决方案上，有了很大的、专业化的进步，现在也许可以真的有点底气说自己是计算机系的学生了吧。也感谢哈工大深圳培养了我，以及一路走来的朋友同学老师家人等等。

@@ -415,6 +415,14 @@ h1, h2, h3, h4 {
   line-height: 0;
 }
 .gh-badge img { height: 20px; display: block; }
+/* 作品卡片内的徽章：去掉 work-links 的按钮边框 */
+.work-links .gh-badge {
+  border: none;
+  padding: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+}
+.work-links .gh-badge:hover { background: transparent; }
 
 .tag-row { display: flex; flex-wrap: wrap; gap: 10px; }
 .tag {
@@ -608,10 +616,18 @@ h1, h2, h3, h4 {
   .hero-name h1 { text-shadow: none; }
   .hero-dialogue { position: relative; right: 0; bottom: 0; margin: 20px 6vw 32px; width: auto; }
 }
-@media (max-width: 560px) {
-  .site-header { padding: 0 16px; }
-  .site-header nav { gap: 14px; }
-  .page-main { padding: 36px 18px 72px; }
+@media (max-width: 600px) {
+  /* 窄屏 header 收纳：logo/导航/按钮/滤镜色块全面压缩，消除横向溢出 */
+  .site-header { padding: 0 10px; }
+  .site-header .logo { font-size: 12px; letter-spacing: .1em; }
+  .site-header nav { gap: 8px; }
+  .site-header nav a { font-size: 11px; letter-spacing: .08em; }
+  .mode-btn, .lang-btn { font-size: 10px; padding: 3px 6px; letter-spacing: .04em; }
+  .filter-dots { gap: 5px; }
+  .filter-dot { width: 9px; height: 9px; outline-offset: 1px; }
+  .page-main { padding: 36px 14px 72px; }
+  .doc-body { padding: 32px 16px 72px; }
+  .site-footer { padding: 22px 14px; font-size: 11px; }
 }
 
 /* ============================================================

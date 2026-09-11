@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-CN" data-filter="amber" data-mode="pro">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg">
+  <meta charset="UTF-8">
+<script>
+    try {
+      var q = new URLSearchParams(location.search).get('mode');
+      var h = location.hash.replace('#', '');
+      var m = (q === 'art' || h === 'art') ? 'art'
+            : (q === 'pro' || h === 'pro') ? 'pro'
+            : (localStorage.getItem('loancold.mode') === 'pro' ? 'pro' : 'art');
+      document.documentElement.setAttribute('data-mode', m);
+    } catch (e) { document.documentElement.setAttribute('data-mode', 'art'); }
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>川西小环线 5 日自驾路书 — 李程浩 LoanCold</title>
 <meta name="description" content="6 人 7 座 MPV 的川西小环线 5 日自驾路书：成都—四姑娘山—丹巴—塔公—新都桥—康定—成都，全程 904 km，含路线地图、逐日时刻表、预算与避坑清单。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,8 +23,11 @@
 <link rel="stylesheet" href="../assets/vendor/leaflet/leaflet.css">
 <script src="../assets/js/fallback.js" defer></script>
 <style>
-:root{
-  --bg:#F7F6F3;--card:#FFFFFF;--line:#E3E1D9;--line2:#C9C6BC;
+/* 本页为浅色文档风格（含地图/表格，可读性优先）：
+   用 html[data-mode] 高特异性覆盖站点变量，使 header/footer 与正文色调统一 */
+html[data-mode]{
+  --bg:#F7F6F3;--light:#2C2C2A;--shadow:#F7F6F3;
+  --card:#FFFFFF;--line:#E3E1D9;--line2:#C9C6BC;
   --tx:#2C2C2A;--tx2:#5F5E5A;--tx3:#888780;
   --blue:#185FA5;--blue-bg:#E6F1FB;--blue-line:#85B7EB;
   --red:#A32D2D;--red-bg:#FCEBEB;
@@ -90,13 +104,13 @@ ol{margin:8px 0;padding-left:22px}
 <body>
 
 <div class="rb-top">
-  <a class="doc-back" href="../blog.html">← 返回博客</a>
+  <a class="doc-back" href="../blog.html" data-i18n="common.back.blog">← 返回博客</a>
 </div>
 
 <main class="wrap rb">
 
 <header>
-  <h1>川西小环线 5 日自驾路书</h1>
+  <h1 data-i18n="post.chuanxi-roadbook">川西小环线 5 日自驾路书</h1>
   <p class="sub">6 人 · 7 座 MPV · 2026年9月23日（周三）— 9月27日（周日）<br>
   成都双流机场取车还车 · 9/27 20:00 天府机场航班 · 全程约 904 km · 海拔 500–4 401 m</p>
 </header>

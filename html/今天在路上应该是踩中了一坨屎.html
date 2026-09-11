@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-CN" data-filter="amber" data-mode="pro">
 <head>
+  <link rel="icon" href="../favicon.svg">
   <meta charset="UTF-8">
+  <script>
+    try {
+      var q = new URLSearchParams(location.search).get('mode');
+      var h = location.hash.replace('#', '');
+      var m = (q === 'art' || h === 'art') ? 'art'
+            : (q === 'pro' || h === 'pro') ? 'pro'
+            : (localStorage.getItem('loancold.mode') === 'pro' ? 'pro' : 'art');
+      document.documentElement.setAttribute('data-mode', m);
+    } catch (e) { document.documentElement.setAttribute('data-mode', 'art'); }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>今天在路上应该是踩中了一坨屎 — 李程浩 LoanCold</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +24,7 @@
 <body>
 
   <main class="doc-body">
-    <a class="doc-back" href="../blog.html">← 返回博客</a>
+    <a class="doc-back" href="../blog.html" data-i18n="common.back.blog">← 返回博客</a>
 <p>2020.04.20
     </p>
     <img border="0" src="../images/今天在路上应该是踩中了一坨屎.png" alt="nscscc_score" width="1000">
