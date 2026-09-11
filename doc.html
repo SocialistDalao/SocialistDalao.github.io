@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN" data-filter="amber" data-mode="pro">
 <head>
-  <link rel="icon" href="../favicon.svg">
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文档 — 李程浩 LoanCold</title>
+  <link rel="icon" href="favicon.svg">
   <script>
     try {
       var q = new URLSearchParams(location.search).get('mode');
@@ -13,21 +15,22 @@
       document.documentElement.setAttribute('data-mode', m);
     } catch (e) { document.documentElement.setAttribute('data-mode', 'art'); }
   </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live in the house of past memory — 李程浩 LoanCold</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <script src="../assets/js/fallback.js" defer></script>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/fallback.js" defer></script>
 </head>
 <body>
 
   <main class="doc-body">
-    <a class="doc-back" href="../blog.html" data-i18n="common.back.blog">← 返回博客</a>
-<img border="0" src="../images/Live in the house of past memory.jpg" alt="Live in the house of past memory" width="1000">
+    <a class="doc-back" id="doc-back" href="works.html" data-i18n="common.back.works">← 返回作品</a>
+    <article id="doc-content" class="md-body">
+      <p class="dim mono">LOADING…</p>
+    </article>
   </main>
 
-  <script type="module" src="../assets/js/layout.js"></script>
+  <script type="module" src="assets/js/layout.js"></script>
+  <script type="module" src="assets/js/doc.js"></script>
 </body>
 </html>

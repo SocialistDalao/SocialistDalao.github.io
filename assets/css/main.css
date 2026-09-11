@@ -593,6 +593,67 @@ h1, h2, h3, h4 {
 }
 .doc-back:hover { background: var(--light); color: var(--bg); }
 
+/* ---------- Markdown 文档排版（doc.html 渲染内容） ---------- */
+.md-body h1 { font-size: 30px; line-height: 1.3; margin: 0 0 26px; }
+.md-body h2 {
+  font-size: 22px;
+  margin: 40px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--light);
+}
+.md-body h3 { font-size: 18px; margin: 30px 0 10px; }
+.md-body h4 { font-size: 16px; margin: 24px 0 8px; }
+.md-body p { margin: 0 0 16px; }
+.md-body ul, .md-body ol { margin: 0 0 18px; padding-left: 24px; }
+.md-body li { margin-bottom: 6px; }
+.md-body img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--light);
+  padding: 6px;
+  background: var(--bg);
+  margin: 8px 0;
+}
+.md-body blockquote {
+  margin: 0 0 18px;
+  padding: 4px 0 4px 18px;
+  border-left: 4px solid var(--light);
+  opacity: .82;
+}
+.md-body code {
+  font-family: var(--font-mono);
+  font-size: .92em;
+  padding: 2px 6px;
+  border: 1px solid var(--light);
+}
+.md-body pre {
+  padding: 16px 18px;
+  border: 1px solid var(--light);
+  overflow-x: auto;
+  margin: 0 0 18px;
+}
+.md-body pre code { border: none; padding: 0; }
+.md-body a { text-decoration: underline dotted; }
+.md-body hr {
+  border: 0;
+  height: 1px;
+  background: var(--light);
+  opacity: .4;
+  margin: 32px 0;
+}
+.md-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 18px;
+  font-size: 14px;
+}
+.md-body th, .md-body td {
+  border: 1px solid var(--light);
+  padding: 8px 10px;
+  text-align: left;
+}
+.md-body th { font-weight: 700; }
+
 /* ---------- 滚动点阵淡入 ---------- */
 .reveal { opacity: 0; transform: translateY(10px); }
 .reveal.is-visible {

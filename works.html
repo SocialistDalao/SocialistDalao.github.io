@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-filter="amber" data-mode="art">
+<html lang="zh-CN" data-filter="amber" data-mode="pro">
 <head>
-  <link rel="icon" href="favicon.svg">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>作品 — 李程浩 LoanCold</title>
-  <meta name="description" content="李程浩的个人作品：操作系统、FPGA 计算机系统、数学建模与校园信息平台等项目。">
+  <meta name="description" content="李程浩的个人作品：操作系统、FPGA 计算机系统、Rust 生态研究、数学建模与校园信息平台等项目。">
+  <link rel="icon" href="favicon.svg">
   <script>
     try {
       var q = new URLSearchParams(location.search).get('mode');
@@ -30,166 +30,13 @@
       <h1 data-i18n="works.title">个人作品</h1>
     </header>
 
-    <div class="work-grid">
-
-      <!-- UltraOS -->
-      <a class="work-card reveal" href="cscc.html">
-        <div class="work-shot">
-          <img class="dither-plain"
-               src="images/cscc_judge.png"
-               alt="UltraOS"
-               onerror="this.onerror=null;this.src='https://placehold.co/640x360/F4EFE6/9A7B2D?text=UltraOS';">
-        </div>
-        <h3 data-i18n="works.w1.t">UltraOS — RISC-V64 多核操作系统</h3>
-        <div class="work-meta mono" data-i18n="works.w1.m">RUST · K210 · 多核内核 · 2021</div>
-        <p data-i18n="works.w1.d">以 Rust 编写、运行于 Kendryte-K210 双核 RISC-V 处理器，支持 EXT2 / FAT32 文件系统与双核调度。</p>
-        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
-      </a>
-
-      <!-- UltraMIPS -->
-      <a class="work-card reveal" href="nscscc.html">
-        <div class="work-shot">
-          <img class="dither-plain"
-               src="images/nscscc_overview.png"
-               alt="UltraMIPS"
-               onerror="this.onerror=null;this.src='https://placehold.co/640x360/F4EFE6/9A7B2D?text=UltraMIPS';">
-        </div>
-        <h3 data-i18n="works.w2.t">UltraMIPS — FPGA 双发射计算机系统</h3>
-        <div class="work-meta mono" data-i18n="works.w2.m">FPGA · MIPS32 · 六级流水 · 一等奖</div>
-        <p data-i18n="works.w2.d">顺序双发射六级流水 CPU，含全流水 Cache 与动态分支预测（90.6% 命中），系统能力大赛全国一等奖（2/31）。</p>
-        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
-      </a>
-
-      <!-- 出租车决策 -->
-      <a class="work-card reveal" href="cumcm.html">
-        <div class="work-shot">
-          <img class="dither-plain"
-               src="images/cumcm_decision.png"
-               alt="出租车决策模型"
-               onerror="this.onerror=null;this.src='https://placehold.co/640x360/F4EFE6/9A7B2D?text=CUMCM';">
-        </div>
-        <h3 data-i18n="works.w3.t">出租车机场载客线性决策模型</h3>
-        <div class="work-meta mono" data-i18n="works.w3.m">MATLAB · 统计决策 · 国二</div>
-        <p data-i18n="works.w3.d">面向深圳宝安国际机场，综合航班信息与收益期望建模司机决策，并优化上车点布局与短途优先权方案。</p>
-        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
-      </a>
-
-      <!-- n-gram -->
-      <a class="work-card reveal" href="mcm.html">
-        <div class="work-shot">
-          <img class="dither-plain"
-               src="images/mcm_ngram.png"
-               alt="n-gram 评价模型"
-               onerror="this.onerror=null;this.src='https://placehold.co/640x360/F4EFE6/9A7B2D?text=MCM';">
-        </div>
-        <h3 data-i18n="works.w4.t">基于 n-gram 的商品评价模型</h3>
-        <div class="work-meta mono" data-i18n="works.w4.m">NLP · TEXT MINING · 美赛 M</div>
-        <p data-i18n="works.w4.d">以 n-gram 与相关性分析提取亚马逊商品评价的关键特性，构建双线性回归方程预测产品口碑走势。</p>
-        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
-      </a>
-
-      <!-- HITA -->
-      <a class="work-card reveal" href="hita.html">
-        <div class="work-shot">
-          <img class="dither-plain"
-               src="images/hita_glance.png"
-               alt="HITSZ 助手界面"
-               onerror="this.onerror=null;this.src='https://placehold.co/640x360/F4EFE6/9A7B2D?text=HITA';">
-        </div>
-        <h3 data-i18n="works.w5.t">HITSZ 助手 — 智能校园信息平台</h3>
-        <div class="work-meta mono" data-i18n="works.w5.m">ANDROID · 问答系统 · 4200 用户</div>
-        <p data-i18n="works.w5.d">端云结合的校园信息平台：课表、社区、智能问答与敏感内容检测，覆盖大部分哈深本科生，日活 2500。</p>
-        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
-      </a>
-
-      <!-- 沙漠掘金 -->
-      <a class="work-card reveal" href="cumcm2020.html">
-        <div class="work-shot">
-          <img class="dither-plain"
-               src="images/cumcm2020_prob1.png"
-               alt="沙漠掘金路径模型"
-               onerror="this.onerror=null;this.src='https://placehold.co/640x360/F4EFE6/9A7B2D?text=DESERT';">
-        </div>
-        <h3 data-i18n="works.w6.t">「沙漠掘金」多情景最优决策模型</h3>
-        <div class="work-meta mono" data-i18n="works.w6.m">动态规划 · 博弈论 · 国二</div>
-        <p data-i18n="works.w6.d">针对单人与多人在确定 / 概率天气下的路径决策，给出动态规划与混合 Nash 博弈模型，获国赛二等奖。</p>
-        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
-      </a>
-
-      <!-- RUF（含 GitHub Star 徽章，故用 div 结构以支持多链接） -->
-      <div class="work-card reveal">
-        <a href="ruf.html">
-          <div class="work-shot">
-            <img class="dither-plain"
-                 src="images/ruf_arch.jpg"
-                 alt="RUF 架构"
-                 onerror="this.onerror=null;this.src='https://placehold.co/640x360/F4EFE6/9A7B2D?text=RUF';">
-          </div>
-        </a>
-        <h3><a href="ruf.html" data-i18n="works.w7.t">Rust 编译器不稳定特性研究</a></h3>
-        <div class="work-meta mono" data-i18n="works.w7.m">ICSE (CCF-A) · 一作 · Rust</div>
-        <p data-i18n="works.w7.d">软件工程顶会 ICSE (CCF-A) 一作；自研生态解析器解析 248M 依赖（99% 正确率），发现至多 44% 生态受影响、12% 无法编译。</p>
-        <div class="work-links">
-          <a href="ruf.html" data-i18n="works.more">详情 →</a>
-          <a class="gh-badge" href="https://github.com/ZJU-SEC/Cargo-Ecosystem-Monitor" target="_blank" rel="noopener" aria-label="RUF GitHub Stars">
-            <img src="https://img.shields.io/github/stars/ZJU-SEC/Cargo-Ecosystem-Monitor?style=social" alt="GitHub stars" loading="lazy" onerror="this.style.display='none'">
-          </a>
-        </div>
-      </div>
-
-      <!-- Rust for System -->
-      <a class="work-card reveal" href="rust4system.html">
-        <div class="work-shot work-shot--text"><span class="work-shot-title">RUST SYSTEM</span></div>
-        <h3 data-i18n="works.w8.t">基于 Rust 的系统搭建、防护与攻击</h3>
-        <div class="work-meta mono" data-i18n="works.w8.m">RUST FOR LINUX · 跨语言安全 · 2021-2023</div>
-        <p data-i18n="works.w8.d">Rust for Linux 驱动框架、混合安全语言系统预研、C/C++ 与 Rust 交互的 ABI 安全检测工具。</p>
-        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
-      </a>
-
-      <!-- AiC -->
-      <a class="work-card reveal" href="AiC.html">
-        <div class="work-shot work-shot--text"><span class="work-shot-title">ALL-IN-CLOUD</span></div>
-        <h3 data-i18n="works.w9.t">All-in-Cloud：云计算挑战与展望</h3>
-        <div class="work-meta mono" data-i18n="works.w9.m">综述论文 · 学术英语 · 2019</div>
-        <p data-i18n="works.w9.d">云计算领域综述（约 8k 字），比较云计算与边缘计算，展望云上时代的挑战与机遇。</p>
-        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
-      </a>
-
-      <!-- Naive SE -->
-      <a class="work-card reveal" href="naivese.html">
-        <div class="work-shot">
-          <img class="dither-plain"
-               src="images/se_query.png"
-               alt="Naive SE 查询界面"
-               onerror="this.onerror=null;this.src='https://placehold.co/640x360/F4EFE6/9A7B2D?text=NaiveSE';">
-        </div>
-        <h3 data-i18n="works.w10.t">HITSZ 通知新闻搜索引擎：Naive SE</h3>
-        <div class="work-meta mono" data-i18n="works.w10.m">LUCENE · IKANALYZER · TOMCAT</div>
-        <p data-i18n="works.w10.d">基于 Lucene / IKAnalyzer / Tomcat 的中文校园搜索引擎，信息检索课程项目。</p>
-        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
-      </a>
-
-      <!-- xv6 -->
-      <a class="work-card reveal" href="xv62019.html">
-        <div class="work-shot work-shot--text"><span class="work-shot-title">MIT 6.S081</span></div>
-        <h3 data-i18n="works.w11.t">MIT xv6 6.S081 实验（2019）</h3>
-        <div class="work-meta mono" data-i18n="works.w11.m">操作系统 · 独立完成 1-9</div>
-        <p data-i18n="works.w11.d">独立完成 MIT 操作系统实验 1-9（Utilities / Shell / Lazy / CoW / Lock / Mmap 等）。</p>
-        <div class="work-links"><span class="mono dim" style="font-size:12px;" data-i18n="works.more">详情 →</span></div>
-      </a>
-
-      <!-- 网络协议栈实验 -->
-      <a class="work-card reveal" href="https://gitee.com/LoanCold/net_lab_hitsz" target="_blank" rel="noopener">
-        <div class="work-shot work-shot--text"><span class="work-shot-title">NET STACK</span></div>
-        <h3 data-i18n="works.w12.t">计算机网络全协议栈实验</h3>
-        <div class="work-meta mono" data-i18n="works.w12.m">VLAN · RIP · NAT · SOCKET</div>
-        <p data-i18n="works.w12.d">VLAN / RIP / NAT 配置、以太帧抓包解析与 Socket 编程，覆盖 ETH / ARP / IP / ICMP / UDP 全栈。</p>
-        <div class="work-links"><span class="mono dim" style="font-size:12px;">gitee ↗</span></div>
-      </a>
-
+    <!-- 作品卡片由 data/projects.json 驱动渲染（assets/js/works.js） -->
+    <div class="work-grid" id="work-grid">
+      <p class="dim mono">LOADING…</p>
     </div>
   </main>
 
   <script type="module" src="assets/js/layout.js"></script>
+  <script type="module" src="assets/js/works.js"></script>
 </body>
 </html>

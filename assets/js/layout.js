@@ -35,7 +35,7 @@ function currentPageKey() {
   return (p === '' || p === '/') ? 'index.html' : p;
 }
 
-/* 子目录基准路径：博客文章位于 html/ 一层，导航需回退到站点根 */
+/* 子目录基准路径（当前所有页面均位于根目录；保留以兼容未来子目录页面） */
 function basePath() {
   const seg = location.pathname.split('/').filter(Boolean);
   return seg.length > 1 ? '../' : '';

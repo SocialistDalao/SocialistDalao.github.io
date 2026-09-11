@@ -156,12 +156,16 @@ class BlogApp {
       this.listEl.innerHTML = `<p class="dim mono">${t('blog.empty')}</p>`;
       return;
     }
-    this.listEl.innerHTML = posts.map(p => `
-      <a class="post-row reveal is-visible" href="${encodeURI(p.url)}" target="_blank" rel="noopener">
+    this.listEl.innerHTML = posts.map(p => {
+      /* .md 内容经通用渲染器 doc.html 打开；其他（如 roadbook.html）直链 */
+      const href = p.url.endsWith('.md') ? `doc.html?c=${encodeURI(p.url)}` : encodeURI(p.url);
+      return `
+      <a class="post-row reveal is-visible" href="${href}">
         <span class="p-date mono">${p.date || t('blog.unknown.date')}</span><span class="p-cat">${t('blog.cat.' + p.category)}</span>
         <h3>${this.title(p)}</h3>
         <p class="p-excerpt">${p.excerpt || ''}</p>
-      </a>`).join('');
+      </a>`;
+    }).join('');
   }
 }
 

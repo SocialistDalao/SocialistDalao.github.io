@@ -6,7 +6,7 @@
     "date": "2026.09.23",
     "category": "travel",
     "excerpt": "6 人 7 座 MPV，成都取车走四姑娘山、丹巴、塔公、新都桥、康定回成都，全程 904 km，含高德底图路线、逐日时刻表、预算与避坑清单。",
-    "url": "html/川西小环线5日自驾路书.html"
+    "url": "roadbook.html"
   },
   {
     "id": "wuxing-jiubian",
@@ -15,7 +15,7 @@
     "date": "2021.05.01",
     "category": "thought",
     "excerpt": "这个五一到上一个五一的一年，在对问题的分析和提出解决方案上，有了很大的、专业化的进步。",
-    "url": "html/五一感想.html"
+    "url": "content/posts/wuxing-jiubian.md"
   },
   {
     "id": "lieblian",
@@ -24,7 +24,7 @@
     "date": "2021.02.28",
     "category": "poem",
     "excerpt": "人生是个圆。而强大正是裂变之时，亦是天与地撞出极光的开始。",
-    "url": "html/裂变.html"
+    "url": "content/posts/lieblian.md"
   },
   {
     "id": "bukchixu",
@@ -33,7 +33,7 @@
     "date": "2021.01.17",
     "category": "thought",
     "excerpt": "李程浩是一个不可持续的李程浩，诡计多端，变幻莫测。",
-    "url": "html/不可持续的李程浩.html"
+    "url": "content/posts/bukchixu.md"
   },
   {
     "id": "keep-open",
@@ -42,7 +42,7 @@
     "date": "2021.01.07",
     "category": "poem",
     "excerpt": "Treat the world as the same, though not.",
-    "url": "html/Keep open to the world.html"
+    "url": "content/posts/keep-open.md"
   },
   {
     "id": "xinzaizhenbian",
@@ -51,7 +51,7 @@
     "date": "2020.11.07",
     "category": "poem",
     "excerpt": "早，是安稳；晚，是夜之前奏；水，要褪洗灵魂。",
-    "url": "html/心在枕边.html"
+    "url": "content/posts/xinzaizhenbian.md"
   },
   {
     "id": "huiyi-gaozhong",
@@ -60,7 +60,7 @@
     "date": "2020.08.22",
     "category": "thought",
     "excerpt": "从竞赛到高考，一路走来，有悲有喜，酸甜苦辣都尝过了。",
-    "url": "html/回忆高中.html"
+    "url": "content/posts/huiyi-gaozhong.md"
   },
   {
     "id": "waimai-jinghun",
@@ -69,7 +69,7 @@
     "date": "2020.07.14",
     "category": "misc",
     "excerpt": "在资本横流的世界之中，找寻自己触手可及的羊毛。",
-    "url": "html/外卖惊魂录.html"
+    "url": "content/posts/waimai-jinghun.md"
   },
   {
     "id": "uncovered-2020",
@@ -78,7 +78,7 @@
     "date": "2020.06.07",
     "category": "thought",
     "excerpt": "关于《无人知晓》，以及城市生活最深处未被揭开的部分。",
-    "url": "html/2020 Uncovered thought from LoanCold.html"
+    "url": "content/posts/uncovered-2020.md"
   },
   {
     "id": "zuijin-yixie-chenmi",
@@ -87,7 +87,7 @@
     "date": "2020.06.01",
     "category": "poem",
     "excerpt": "不爱我自己这样的男人，却要自己爱自己。",
-    "url": "html/最近的一些沉迷和想要诉说的无理取闹.html"
+    "url": "content/posts/zuijin-yixie-chenmi.md"
   },
   {
     "id": "baise-wujian",
@@ -96,7 +96,7 @@
     "date": "2020.06.01",
     "category": "poem",
     "excerpt": "永远不变的黑色，或许才是永恒。",
-    "url": "html/白色物件与灰色生活.html"
+    "url": "content/posts/baise-wujian.md"
   },
   {
     "id": "shizai-lushang",
@@ -105,7 +105,7 @@
     "date": "2020.04.20",
     "category": "misc",
     "excerpt": "一幅漫画，一个瞬间。",
-    "url": "html/今天在路上应该是踩中了一坨屎.html"
+    "url": "content/posts/shizai-lushang.md"
   },
   {
     "id": "live-in-house",
@@ -114,6 +114,6 @@
     "date": "",
     "category": "poem",
     "excerpt": "一张照片，一段被封存的记忆。",
-    "url": "html/Live in the house of past memory.html"
+    "url": "content/posts/live-in-house.md"
   }
 ]

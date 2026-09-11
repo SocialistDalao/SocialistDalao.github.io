@@ -1,0 +1,136 @@
+[
+  {
+    "id": "ultraos",
+    "title": "UltraOS — RISC-V64 多核操作系统",
+    "titleEn": "UltraOS — RISC-V64 Multiprocessor OS",
+    "meta": "RUST · K210 · 多核内核 · 2021",
+    "metaEn": "RUST · K210 · MULTICORE KERNEL · 2021",
+    "desc": "以 Rust 编写、运行于 Kendryte-K210 双核 RISC-V 处理器，支持 EXT2 / FAT32 文件系统与双核调度。",
+    "descEn": "Written in Rust for the dual-core RISC-V Kendryte-K210 board, with EXT2 / FAT32 filesystems and dual-core scheduling.",
+    "url": "content/projects/ultraos.md",
+    "image": "images/cscc_judge.png"
+  },
+  {
+    "id": "ultramips",
+    "title": "UltraMIPS — FPGA 双发射计算机系统",
+    "titleEn": "UltraMIPS — FPGA Dual-Issue Computer System",
+    "meta": "FPGA · MIPS32 · 六级流水 · 一等奖",
+    "metaEn": "FPGA · MIPS32 · 6-STAGE PIPELINE · 1ST PRIZE",
+    "desc": "顺序双发射六级流水 CPU，含全流水 Cache 与动态分支预测（90.6% 命中），系统能力大赛全国一等奖（2/31）。",
+    "descEn": "Dual-issue 6-stage pipelined CPU with fully pipelined Cache and dynamic branch prediction (90.6% accuracy). National First Prize (2/31).",
+    "url": "content/projects/ultramips.md",
+    "image": "images/nscscc_overview.png",
+    "github": "SocialistDalao/UltraMIPS_NSCSCC"
+  },
+  {
+    "id": "ruf",
+    "title": "Rust 编译器不稳定特性研究",
+    "titleEn": "Demystifying Rust Unstable Feature Usage",
+    "meta": "ICSE (CCF-A) · 一作 · Rust",
+    "metaEn": "ICSE (CCF-A) · FIRST AUTHOR · RUST",
+    "desc": "软件工程顶会 ICSE (CCF-A) 一作；自研生态解析器解析 248M 依赖（99% 正确率），发现至多 44% 生态受影响、12% 无法编译。",
+    "descEn": "ICSE (CCF-A) first-author paper; custom parser analyzes 248M transitive deps (99% precision), revealing up to 44% ecosystem impact.",
+    "url": "content/projects/ruf.md",
+    "image": "images/ruf_arch.jpg",
+    "github": "ZJU-SEC/Cargo-Ecosystem-Monitor"
+  },
+  {
+    "id": "rust4system",
+    "title": "基于 Rust 的系统搭建、防护与攻击",
+    "titleEn": "Building, Defending & Attacking Systems with Rust",
+    "meta": "RUST FOR LINUX · 跨语言安全 · 2021-2023",
+    "metaEn": "RUST FOR LINUX · CROSS-LANGUAGE SECURITY · 2021-2023",
+    "desc": "Rust for Linux 驱动框架、混合安全语言系统预研、C/C++ 与 Rust 交互的 ABI 安全检测工具。",
+    "descEn": "Rust-for-Linux driver framework, hybrid memory-safe system prototyping, and ABI checker for C/C++ ↔ Rust interop security.",
+    "url": "content/projects/rust4system.md",
+    "placeholder": "RUST SYSTEM"
+  },
+  {
+    "id": "hita",
+    "title": "HITSZ 助手 — 智能校园信息平台",
+    "titleEn": "HITSZ Assistant — Smart Campus Platform",
+    "meta": "ANDROID · 问答系统 · 4200 用户",
+    "metaEn": "ANDROID · QA SYSTEM · 4,200 USERS",
+    "desc": "端云结合的校园信息平台：课表、社区、智能问答与敏感内容检测，覆盖大部分哈深本科生，日活 2500。",
+    "descEn": "An edge-cloud campus platform: timetable, community, intelligent Q&A and sensitive-content detection. 4,200 registered users, 2,500 DAU.",
+    "url": "content/projects/hita.md",
+    "image": "images/hita_glance.png"
+  },
+  {
+    "id": "naivese",
+    "title": "HITSZ 通知新闻搜索引擎：Naive SE",
+    "titleEn": "Naive SE — Campus News Search Engine",
+    "meta": "LUCENE · IKANALYZER · TOMCAT",
+    "metaEn": "LUCENE · IKANALYZER · TOMCAT",
+    "desc": "基于 Lucene / IKAnalyzer / Tomcat 的中文校园搜索引擎，信息检索课程项目。",
+    "descEn": "A Chinese campus search engine built with Lucene / IKAnalyzer / Tomcat (Information Retrieval course project).",
+    "url": "content/projects/naivese.md",
+    "image": "images/se_query.png"
+  },
+  {
+    "id": "cumcm",
+    "title": "出租车机场载客线性决策模型",
+    "titleEn": "Taxi Dispatch Decision Model for Airport Pickup",
+    "meta": "MATLAB · 统计决策 · 国二",
+    "metaEn": "MATLAB · STATISTICAL DECISION · NATIONAL 2ND PRIZE",
+    "desc": "面向深圳宝安国际机场，综合航班信息与收益期望建模司机决策，并优化上车点布局与短途优先权方案。",
+    "descEn": "Models taxi drivers' decisions at Shenzhen Bao'an International Airport from flight arrivals and profit expectations, optimizing pickup layouts and short-trip priority schemes.",
+    "url": "content/projects/cumcm.md",
+    "image": "images/cumcm_decision.png"
+  },
+  {
+    "id": "mcm",
+    "title": "基于 n-gram 的商品评价模型",
+    "titleEn": "n-gram Based Product Review Model",
+    "meta": "NLP · TEXT MINING · 美赛 M",
+    "metaEn": "NLP · TEXT MINING · MCM MERITORIOUS",
+    "desc": "以 n-gram 与相关性分析提取亚马逊商品评价的关键特性，构建双线性回归方程预测产品口碑走势。",
+    "descEn": "Extracts key product features from Amazon reviews via n-gram and correlation analysis, and predicts product reputation trends with a dual linear regression.",
+    "url": "content/projects/mcm.md",
+    "image": "images/mcm_ngram.png"
+  },
+  {
+    "id": "cumcm2020",
+    "title": "「沙漠掘金」多情景最优决策模型",
+    "titleEn": "Gold-of-the-Desert Multi-Scenario Optimal Decision Model",
+    "meta": "动态规划 · 博弈论 · 国二",
+    "metaEn": "DYNAMIC PROGRAMMING · GAME THEORY · NATIONAL 2ND PRIZE",
+    "desc": "针对单人与多人在确定 / 概率天气下的路径决策，给出动态规划与混合 Nash 博弈模型，获国赛二等奖。",
+    "descEn": "Dynamic programming and mixed-Nash game models for route decisions under certain / probabilistic weather, for single and multiple players. National Second Prize.",
+    "url": "content/projects/cumcm2020.md",
+    "image": "images/cumcm2020_prob1.png"
+  },
+  {
+    "id": "aic",
+    "title": "All-in-Cloud：云计算挑战与展望",
+    "titleEn": "All-in-Cloud: Challenges & Future of AiC",
+    "meta": "综述论文 · 学术英语 · 2019",
+    "metaEn": "SURVEY PAPER · ACADEMIC ENGLISH · 2019",
+    "desc": "云计算领域综述（约 8k 字），比较云计算与边缘计算，展望云上时代的挑战与机遇。",
+    "descEn": "A ~8k-word cloud computing survey comparing cloud vs. edge computing and outlooking the cloud-native era.",
+    "url": "content/projects/aic.md",
+    "placeholder": "ALL-IN-CLOUD"
+  },
+  {
+    "id": "xv62019",
+    "title": "MIT xv6 6.S081 实验（2019）",
+    "titleEn": "MIT xv6 6.S081 Labs (2019)",
+    "meta": "操作系统 · 独立完成 1-9",
+    "metaEn": "OPERATING SYSTEMS · LABS 1-9",
+    "desc": "独立完成 MIT 操作系统实验 1-9（Utilities / Shell / Lazy / CoW / Lock / Mmap 等）。",
+    "descEn": "Independently completed MIT OS labs 1–9 (Utilities, Shell, Lazy, CoW, Lock, Mmap, …).",
+    "url": "content/projects/xv62019.md",
+    "placeholder": "MIT 6.S081"
+  },
+  {
+    "id": "netlab",
+    "title": "计算机网络全协议栈实验",
+    "titleEn": "Full Network Protocol-Stack Labs",
+    "meta": "VLAN · RIP · NAT · SOCKET",
+    "metaEn": "VLAN · RIP · NAT · SOCKET",
+    "desc": "VLAN / RIP / NAT 配置、以太帧抓包解析与 Socket 编程，覆盖 ETH / ARP / IP / ICMP / UDP 全栈。",
+    "descEn": "VLAN/RIP/NAT configuration, Ethernet frame analysis and socket programming across ETH/ARP/IP/ICMP/UDP.",
+    "external": "https://gitee.com/LoanCold/net_lab_hitsz",
+    "placeholder": "NET STACK"
+  }
+]
