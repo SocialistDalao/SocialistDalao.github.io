@@ -390,7 +390,14 @@ h1, h2, h3, h4 {
 }
 .timeline .t-date { font-family: var(--font-mono); font-size: 13px; opacity: .6; letter-spacing: .12em; }
 .timeline .t-title { font-weight: 700; font-size: 17px; }
-.timeline .t-note { opacity: .65; font-size: 14px; }
+/* 附属信息行（时间 / 导师 / 学分绩）：等宽小字弱化，保证每条严格两行 */
+.timeline .t-note {
+  margin-top: 3px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  opacity: .62;
+  letter-spacing: .06em;
+}
 
 .honor-list { list-style: none; margin: 0; padding: 0; }
 .honor-list li {
@@ -406,6 +413,48 @@ h1, h2, h3, h4 {
   background: var(--light);
 }
 .honor-list .h-year { font-family: var(--font-mono); font-size: 13px; opacity: .6; margin-right: 12px; }
+
+/* ---------- 主要作品（两行：标题 + 链接 / 描述） ---------- */
+.work-list { list-style: none; margin: 0; padding: 0; }
+.work-entry {
+  padding: 14px 0 14px 20px;
+  border-bottom: 1px dashed var(--light);
+  position: relative;
+}
+.work-entry::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 23px;
+  width: 7px; height: 7px;
+  background: var(--light);
+}
+.we-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 14px;
+}
+.we-title { font-weight: 700; font-size: 17px; }
+.we-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+}
+.we-links a:not(.gh-badge) {
+  opacity: .7;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+.we-links a:not(.gh-badge):hover { opacity: 1; }
+/* GitHub star 徽章（shields.io）：flex 行内去掉左侧外边距，且不继承文字链接的下划线 */
+.we-links .gh-badge { margin-left: 0; }
+.we-links .gh-badge img { height: 20px; display: block; }
+.we-desc { margin-top: 6px; font-size: 14px; opacity: .68; line-height: 1.7; }
+[data-mode="pro"] .we-links a { color: var(--gold); }
 
 /* GitHub Star 徽章（shields.io 动态，实时显示 star 数） */
 .gh-badge {

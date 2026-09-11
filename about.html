@@ -10,9 +10,10 @@
     try {
       var q = new URLSearchParams(location.search).get('mode');
       var h = location.hash.replace('#', '');
+      var saved = sessionStorage.getItem('loancold.mode.session') || localStorage.getItem('loancold.mode');
       var m = (q === 'art' || h === 'art') ? 'art'
             : (q === 'pro' || h === 'pro') ? 'pro'
-            : (localStorage.getItem('loancold.mode') === 'pro' ? 'pro' : 'art');
+            : (saved === 'pro' ? 'pro' : 'art');
       document.documentElement.setAttribute('data-mode', m);
     } catch (e) { document.documentElement.setAttribute('data-mode', 'art'); }
   </script>
@@ -47,7 +48,7 @@
         <h2 class="section-title" data-i18n="about.s6">VI. 联系</h2>
         <p class="mono" style="font-size:14px;">
           loancold@foxmail.com<br>
-          <span class="dim">loancold@outlook.com / loancold@zju.edu.cn</span><br>
+          <span class="dim">loancold@outlook.com</span><br>
           QQ：<span class="dim">loancold / 850323576</span><br>
           <a href="file/lch_CV_v2.pdf" target="_blank" rel="noopener">个人简历 PDF ↗</a>
         </p>
@@ -67,16 +68,16 @@
           <h2 class="section-title" data-i18n="about.s2">II. 主要经历</h2>
           <ul class="timeline">
             <li>
-              <span class="t-date">2025 — 至今</span>
-              <div class="t-title" data-i18n="about.exp0">腾讯 · 微信小游戏全栈性能优化工程师</div>
+              <div class="t-title" data-i18n="about.exp0.t">腾讯 · 微信小游戏全栈性能优化工程师</div>
+              <div class="t-note" data-i18n="about.exp0.n">2025 — 至今</div>
             </li>
             <li>
-              <span class="t-date">2022.09 — 2025.03</span>
-              <div class="t-title" data-i18n="about.edu1.t">浙江大学 · 网络空间安全 · 硕士 · 导师 申文博</div>
+              <div class="t-title" data-i18n="about.edu1.t">浙江大学 · 网络空间安全 · 硕士</div>
+              <div class="t-note" data-i18n="about.edu1.n">2022.09 — 2025.03 · 导师 申文博</div>
             </li>
             <li>
-              <span class="t-date">2018 — 2022</span>
-              <div class="t-title" data-i18n="about.edu2.t">哈尔滨工业大学（深圳）· 计算机 · 本科 · 学分绩 94.07 (TOP 2%) · 导师 夏文</div>
+              <div class="t-title" data-i18n="about.edu2.t">哈尔滨工业大学（深圳）· 计算机 · 本科</div>
+              <div class="t-note" data-i18n="about.edu2.n">2018 — 2022 · 学分绩 94.07 (TOP 2%) · 导师 夏文</div>
             </li>
           </ul>
         </section>
@@ -85,24 +86,39 @@
 
         <section class="reveal">
           <h2 class="section-title" data-i18n="about.s3">III. 主要作品</h2>
-          <ul class="honor-list">
-            <li>
-              <span data-i18n="about.exp.1"><b>UltraMIPS</b> · FPGA 双发射计算机系统（队长）— 主频 91MHz、性能 63 倍 / IPC 34.6 倍，「龙芯杯」CPU 团队赛一等奖（总排名 2）</span>
-              <a class="gh-badge" href="https://github.com/SocialistDalao/UltraMIPS_NSCSCC" target="_blank" rel="noopener" aria-label="UltraMIPS GitHub Stars">
-                <img src="https://img.shields.io/github/stars/SocialistDalao/UltraMIPS_NSCSCC?style=social" alt="GitHub stars" loading="lazy" onerror="this.style.display='none'">
-              </a>
+          <ul class="work-list">
+            <li class="work-entry">
+              <div class="we-head">
+                <span class="we-title" data-i18n="about.exp.1.t">UltraMIPS · FPGA 双发射计算机系统（队长）</span>
+                <span class="we-links">
+                  <a class="gh-badge" href="https://github.com/SocialistDalao/UltraMIPS_NSCSCC" target="_blank" rel="noopener" aria-label="UltraMIPS GitHub repository">
+                    <img src="https://img.shields.io/github/stars/SocialistDalao/UltraMIPS_NSCSCC?style=social" alt="GitHub stars" loading="lazy" onerror="this.style.display='none'">
+                  </a>
+                </span>
+              </div>
+              <div class="we-desc" data-i18n="about.exp.1.d">主频 91MHz、性能 63 倍 / IPC 34.6 倍，「龙芯杯」CPU 团队赛一等奖（总排名 2）</div>
             </li>
-            <li data-i18n="about.exp.2"><b>UltraOS</b> · RISC-V64 多核操作系统（队长）— Rust 编写、K210 双核、59 条系统调用，系统能力大赛 OS 内核赛道一等奖第一名</li>
-            <li data-i18n="about.exp.3"><b>Rust 编译器不稳定特性研究</b> — 软件工程顶会 ICSE (CCF-A) 一作，自研生态解析器（248M 依赖、99% 正确率）</li>
-            <li data-i18n="about.exp.4"><b>Rust 操作系统驱动安全增强</b>（本科毕设）— Rust for Linux 驱动框架评估与 ABI 检测工具</li>
-            <li data-i18n="about.exp.5"><b>HITSZ 助手</b>（创始人之一）— 智慧校园 App，2500 日活 / 下载 2w，青年 AI 创新创业大会一等奖</li>
-            <li data-i18n="about.exp.6"><b>出租车机场载客决策模型</b>（队长）— 精确率约 80%，数模国赛二等奖</li>
-            <li data-i18n="about.exp.7"><b>n-gram 商品评价模型</b>（队长）— 文本挖掘与相关性分析，美赛 Meritorious 奖</li>
-            <li data-i18n="about.exp.8"><b>「沙漠掘金」决策模型</b>（队长）— 动态规划与混合 Nash 博弈，数模国赛二等奖</li>
-            <li data-i18n="about.exp.9"><b>All-in-Cloud 云计算综述</b>（组长）— 约 8k 字学术英语论文，含 Oral 与 Poster</li>
-            <li data-i18n="about.exp.10"><b>Naive SE 校园搜索引擎</b> — 基于 Lucene / IKAnalyzer / Tomcat 的中文检索系统</li>
-            <li data-i18n="about.exp.11"><b>MIT xv6 6.S081 实验</b> — 独立完成 1-9（Shell / Lazy / CoW / Lock / Mmap 等）</li>
-            <li data-i18n="about.exp.12"><b>计算机网络全协议栈实验</b> — VLAN / RIP / NAT 配置、抓包解析与 Socket 编程</li>
+            <li class="work-entry">
+              <div class="we-head">
+                <span class="we-title" data-i18n="about.exp.2.t">UltraOS · RISC-V64 多核操作系统（队长）</span>
+                <span class="we-links">
+                  <a class="gh-badge" href="https://github.com/xiyurain/UltraOS" target="_blank" rel="noopener" aria-label="UltraOS GitHub repository">
+                    <img src="https://img.shields.io/github/stars/xiyurain/UltraOS?style=social" alt="GitHub stars" loading="lazy" onerror="this.style.display='none'">
+                  </a>
+                </span>
+              </div>
+              <div class="we-desc" data-i18n="about.exp.2.d">Rust 编写、K210 双核、59 条系统调用；系统能力大赛 OS 内核赛道一等奖第一名</div>
+            </li>
+            <li class="work-entry">
+              <div class="we-head">
+                <span class="we-title" data-i18n="about.exp.3.t">Rust 编译器不稳定特性研究</span>
+                <span class="we-links">
+                  <a href="https://dl.acm.org/doi/10.1145/3597503.3623352" target="_blank" rel="noopener" data-i18n="about.link.icse">ICSE'24 ↗</a>
+                  <a href="https://ieeexplore.ieee.org/document/10919478" target="_blank" rel="noopener" data-i18n="about.link.tse">TSE'25 ↗</a>
+                </span>
+              </div>
+              <div class="we-desc" data-i18n="about.exp.3.d">ICSE 2024 (CCF-A) 会议论文与 IEEE TSE 2025 期刊论文一作；自研生态解析器（248M 依赖、99% 正确率）</div>
+            </li>
           </ul>
         </section>
 

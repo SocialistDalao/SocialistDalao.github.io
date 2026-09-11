@@ -7,7 +7,7 @@
      lang       zh|en     loancold.lang  lang:change
      data-filter 四色主题  loancold.filter dither:filter
 
-   模式判定优先级：URL ?mode= / #mode > localStorage > pro（默认）
+   模式判定优先级：URL ?mode= / #mode > sessionStorage（会话内）> localStorage > art（默认）
    ============================================================ */
 
 import { getLang, setLang, t, applyI18n } from './i18n.js';
@@ -27,6 +27,7 @@ const FILTERS = [
 ];
 
 const MODE_KEY  = 'loancold.mode';
+const MODE_SESSION_KEY = 'loancold.mode.session'; /* 会话内模式记忆（外部 ?mode= 链接跨页面保持） */
 const FILTER_KEY = 'loancold.filter';
 
 /* ---------- 当前页面识别 ---------- */
@@ -43,6 +44,8 @@ function basePath() {
 
 function store(key, val) { try { localStorage.setItem(key, val); } catch (_) { /* ignore */ } }
 function read(key) { try { return localStorage.getItem(key); } catch (_) { return null; } }
+function storeSession(key, val) { try { sessionStorage.setItem(key, val); } catch (_) { /* ignore */ } }
+function readSession(key) { try { return sessionStorage.getItem(key); } catch (_) { return null; } }
 
 /* ============================================================
    模式管理
@@ -54,6 +57,9 @@ export function getMode() {
 export function setMode(mode, { persist = true } = {}) {
   const m = mode === 'art' ? 'art' : 'pro';
   document.documentElement.setAttribute('data-mode', m);
+  /* 会话内始终记忆：外部链接 ?mode=pro 进入后，跨页面保持同一模式 */
+  storeSession(MODE_SESSION_KEY, m);
+  /* 仅「用户主动切换」才永久记忆；URL 参数进入不覆盖访客的长期偏好 */
   if (persist) store(MODE_KEY, m);
   document.querySelectorAll('.mode-btn').forEach(b => {
     const target = b.dataset.modeTarget;
@@ -71,6 +77,10 @@ function resolveInitialMode() {
   if (q === 'art' || h === 'art' || q === 'pro' || h === 'pro') {
     return q === 'art' || h === 'art' ? 'art' : 'pro';
   }
+  /* 会话内记忆 —— 外部链接 ?mode=pro 进入后跨页面保持，
+     直到访客主动切换（避免点「关于」时跳回默认艺术模式） */
+  const sess = readSession(MODE_SESSION_KEY);
+  if (sess === 'art' || sess === 'pro') return sess;
   const saved = read(MODE_KEY);
   return saved === 'pro' ? 'pro' : 'art';   /* 首次访问默认艺术模式 */
 }

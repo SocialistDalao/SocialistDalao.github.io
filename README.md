@@ -93,7 +93,8 @@ doc.html?c=content/projects/<id>.md
 
 ### 其他
 
-- **切换默认模式**：改 `layout.js` 的 `resolveInitialMode()` + 各页面 head 防闪脚本的默认值
+- **切换默认模式**：改 `layout.js` 的 `resolveInitialMode()` + 六个页面（`index` / `about` / `works` / `blog` / `doc` / `roadbook`）head 防闪脚本的默认值
+- **模式判定优先级**：URL `?mode=` / `#mode` > `sessionStorage`（会话内）> `localStorage`（长期）> 默认 `art`。URL 参数与主动切换均写 `sessionStorage`（外部分享链接跨页面保持），仅主动切换写 `localStorage`
 - **接入 Notion**：在 `assets/js/blog.js` 实现 `NotionSource`（同 `PostsSource` 接口），替换 `LocalJsonSource` 即可
 
 ## 技术说明
